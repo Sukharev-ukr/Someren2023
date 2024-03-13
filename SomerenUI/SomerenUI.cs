@@ -49,13 +49,13 @@ namespace SomerenUI
             pnlDashboard.Hide();
 
             // show teachers
-            pnlTeacher.Show();
+           // pnlTeacher.Show();
 
             try
             {
                 // get and display all students
                 List<Teacher> teachers = GetLecturers();
-                DisplayStudents(teachers);
+               // DisplayStudents(teachers);
             }
             catch (Exception e)
             {
@@ -72,7 +72,7 @@ namespace SomerenUI
 
         private List<Teacher> GetLecturers()
         {
-            List<Teacher> students = GetLecturers();
+            List<Teacher> teachers = GetLecturers();
             return teachers;
         }
 
@@ -102,6 +102,11 @@ namespace SomerenUI
         private void studentsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowStudentsPanel();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

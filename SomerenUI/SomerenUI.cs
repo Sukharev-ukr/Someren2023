@@ -17,6 +17,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlStudents.Hide();
+            // ...
 
             // show dashboard
             pnlDashboard.Show();
@@ -27,6 +28,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlDashboard.Hide();
+            panelDrinks.Hide();
 
             // show students
             pnlStudents.Show();
@@ -49,13 +51,13 @@ namespace SomerenUI
             pnlDashboard.Hide();
 
             // show teachers
-           // pnlTeacher.Show();
+            // pnlTeacher.Show();
 
             try
             {
                 // get and display all students
                 List<Teacher> teachers = GetLecturers();
-               // DisplayStudents(teachers);
+                // DisplayStudents(teachers);
             }
             catch (Exception e)
             {
@@ -83,9 +85,16 @@ namespace SomerenUI
 
             foreach (Student student in students)
             {
-                ListViewItem li = new ListViewItem(student.Name);
-                li.Tag = student;   // link student object to listview item
-                listViewStudents.Items.Add(li);
+                // Display Student Number
+                ListViewItem liStudentNumber = new ListViewItem(student.StudentNumber.ToString());
+                liStudentNumber.SubItems.Add(student.RoomID.ToString());
+                liStudentNumber.SubItems.Add(student.StudentFirstName);
+                liStudentNumber.SubItems.Add(student.StudentLastName);
+                liStudentNumber.SubItems.Add(student.StudentPhone);
+                liStudentNumber.SubItems.Add(student.StudentClass);
+
+                liStudentNumber.Tag = student;
+                listViewStudents.Items.Add(liStudentNumber);
             }
         }
 
@@ -105,6 +114,26 @@ namespace SomerenUI
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // ...
+        }
+
+        private void SomerenUI_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

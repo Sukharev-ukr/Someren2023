@@ -17,6 +17,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlStudents.Hide();
+            pnlTeachers.Hide();
 
             // show dashboard
             pnlDashboard.Show();
@@ -42,20 +43,40 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the students: " + e.Message);
             }
         }
+        public static void HideAllPanels(Form form)
+        {
+            // Iterate through all controls on the form
+            foreach (Control control in form.Controls)
+            {
+                // Check if the control is a Panel
+                if (control is Panel panel)
+                {
+
+                    panel.Visible = false;
+                }
+            }
+        }
 
         private void ShowTeacherPanel()
         {
             // hide all other panels
             pnlDashboard.Hide();
 
+
             // show teachers
-           // pnlTeacher.Show();
+            pnlTeachers.Show();
+            listViewTeachers.Show();
+            pnlTeachers.BringToFront();
+            // listViewTeachers.Visible = true;
+
+
 
             try
             {
                 // get and display all students
                 List<Teacher> teachers = GetLecturers();
-               // DisplayStudents(teachers);
+                DisplayTeachers(teachers);
+                // DisplayStudents(teachers);
             }
             catch (Exception e)
             {
@@ -72,7 +93,8 @@ namespace SomerenUI
 
         private List<Teacher> GetLecturers()
         {
-            List<Teacher> teachers = GetLecturers();
+            TeacherService teacherService = new TeacherService();
+            List<Teacher> teachers = teacherService.GetTeachers();
             return teachers;
         }
 
@@ -86,6 +108,23 @@ namespace SomerenUI
                 ListViewItem li = new ListViewItem(student.Name);
                 li.Tag = student;   // link student object to listview item
                 listViewStudents.Items.Add(li);
+            }
+        }
+
+        private void DisplayTeachers(List<Teacher> teachers)
+        {
+            // clear the listview before filling it
+
+            listViewTeachers.Items.Clear();
+
+            foreach (Teacher teacher in teachers)
+            {
+                ListViewItem li = new ListViewItem(teacher.FirstName);
+                li.SubItems.Add(teacher.SecondName);
+                li.SubItems.Add(teacher.Phone);
+                li.SubItems.Add(teacher.Age.ToString());
+                li.Tag = teacher;
+                listViewTeachers.Items.Add(li);
             }
         }
 
@@ -105,6 +144,21 @@ namespace SomerenUI
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowTeacherPanel();
+        }
+
+        private void pnlTeachers_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void listViewTeachers_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

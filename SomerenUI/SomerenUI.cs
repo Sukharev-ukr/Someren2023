@@ -19,6 +19,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlTeachers.Hide();
 
+
             // show dashboard
             pnlDashboard.Show();
 
@@ -28,6 +29,7 @@ namespace SomerenUI
         {
             // hide all other panels
             pnlDashboard.Hide();
+            panelDrinks.Hide();
 
             // show students
             pnlStudents.Show();
@@ -64,6 +66,7 @@ namespace SomerenUI
 
 
             // show teachers
+
             pnlTeachers.Show();
             listViewTeachers.Show();
             pnlTeachers.BringToFront();
@@ -71,12 +74,14 @@ namespace SomerenUI
 
 
 
+
             try
             {
                 // get and display all students
                 List<Teacher> teachers = GetLecturers();
+
                 DisplayTeachers(teachers);
-                // DisplayStudents(teachers);
+
             }
             catch (Exception e)
             {
@@ -105,9 +110,16 @@ namespace SomerenUI
 
             foreach (Student student in students)
             {
-                ListViewItem li = new ListViewItem(student.Name);
-                li.Tag = student;   // link student object to listview item
-                listViewStudents.Items.Add(li);
+                // Display Student Number
+                ListViewItem liStudentNumber = new ListViewItem(student.StudentNumber.ToString());
+                liStudentNumber.SubItems.Add(student.RoomID.ToString());
+                liStudentNumber.SubItems.Add(student.StudentFirstName);
+                liStudentNumber.SubItems.Add(student.StudentLastName);
+                liStudentNumber.SubItems.Add(student.StudentPhone);
+                liStudentNumber.SubItems.Add(student.StudentClass);
+
+                liStudentNumber.Tag = student;
+                listViewStudents.Items.Add(liStudentNumber);
             }
         }
 
@@ -142,16 +154,5 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
-
-      
-
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowTeacherPanel();
-        }
-
-       
-
-      
     }
 }

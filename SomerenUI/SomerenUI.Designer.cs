@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +68,7 @@
             menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, drinksToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new System.Drawing.Size(962, 24);
+            menuStrip1.Size = new System.Drawing.Size(1374, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -122,7 +122,7 @@
             // drinksToolStripMenuItem
             // 
             drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            drinksToolStripMenuItem.Size = new System.Drawing.Size(78, 29);
+            drinksToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             drinksToolStripMenuItem.Text = "Drinks";
             drinksToolStripMenuItem.Click += drinksToolStripMenuItem_Click;
             // 
@@ -169,7 +169,6 @@
             pictureBox1.Size = new System.Drawing.Size(130, 123);
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
-            
             // 
             // listViewStudents
             // 
@@ -178,6 +177,7 @@
             listViewStudents.Size = new System.Drawing.Size(766, 307);
             listViewStudents.TabIndex = 1;
             listViewStudents.UseCompatibleStateImageBehavior = false;
+            listViewStudents.View = System.Windows.Forms.View.Details;
             // 
             // label1
             // 
@@ -199,7 +199,6 @@
             pnlTeachers.Name = "pnlTeachers";
             pnlTeachers.Size = new System.Drawing.Size(932, 460);
             pnlTeachers.TabIndex = 2;
-            
             // 
             // Teacher_text
             // 
@@ -224,16 +223,15 @@
             // 
             listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { First_Name, Last_Name, Phone_Number, Age });
             listViewTeachers.FullRowSelect = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Phone_number";
-            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Phone_number";
+            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
             listViewTeachers.Location = new System.Drawing.Point(38, 51);
             listViewTeachers.Name = "listViewTeachers";
             listViewTeachers.Size = new System.Drawing.Size(761, 397);
             listViewTeachers.TabIndex = 1;
             listViewTeachers.UseCompatibleStateImageBehavior = false;
             listViewTeachers.View = System.Windows.Forms.View.Details;
-            
             // 
             // First_Name
             // 
@@ -258,20 +256,14 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
             ClientSize = new System.Drawing.Size(1374, 842);
-            Controls.Add(panelDrinks);
-
-            //ClientSize = new System.Drawing.Size(962, 505);
             Controls.Add(pnlTeachers);
-
             Controls.Add(menuStrip1);
             Controls.Add(pnlStudents);
             Controls.Add(pnlDashboard);
             MainMenuStrip = menuStrip1;
             Name = "SomerenUI";
             Text = "SomerenApp";
-            Load += SomerenUI_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             pnlDashboard.ResumeLayout(false);
@@ -281,7 +273,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlTeachers.ResumeLayout(false);
             pnlTeachers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)PictureForTeachers).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -330,7 +321,7 @@
         private System.Windows.Forms.ColumnHeader Last_Name;
         private System.Windows.Forms.ColumnHeader Phone_Number;
         private System.Windows.Forms.ColumnHeader Age;
-       // private System.Windows.Forms.PictureBox pictureBox2;
+        // private System.Windows.Forms.PictureBox pictureBox2;
 
         private System.Windows.Forms.PictureBox PictureForTeachers;
     }

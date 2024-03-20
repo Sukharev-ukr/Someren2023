@@ -11,7 +11,11 @@ namespace SomerenUI
         public SomerenUI()
         {
             InitializeComponent();
+            HideAllPanels(this);
+            pnlDashboard.Show();
         }
+
+
 
         private void ShowDashboardPanel()
         {
@@ -28,8 +32,8 @@ namespace SomerenUI
         private void ShowStudentsPanel()
         {
             // hide all other panels
-            pnlDashboard.Hide();
-            panelDrinks.Hide();
+            HideAllPanels(this);
+
 
             // show students
             pnlStudents.Show();
@@ -154,5 +158,16 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
+
+        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // ...
+        }
+
+        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowTeacherPanel();
+        }
+
     }
 }

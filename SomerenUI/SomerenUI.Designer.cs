@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,24 +41,24 @@
             pnlDashboard = new System.Windows.Forms.Panel();
             lblDashboard = new System.Windows.Forms.Label();
             pnlStudents = new System.Windows.Forms.Panel();
+            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            listViewStudents = new System.Windows.Forms.ListView();
+            label1 = new System.Windows.Forms.Label();
             pnlTeachers = new System.Windows.Forms.Panel();
-            label2 = new System.Windows.Forms.Label();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
+            Teacher_text = new System.Windows.Forms.Label();
+            PictureForTeachers = new System.Windows.Forms.PictureBox();
             listViewTeachers = new System.Windows.Forms.ListView();
             First_Name = new System.Windows.Forms.ColumnHeader();
             Last_Name = new System.Windows.Forms.ColumnHeader();
             Phone_Number = new System.Windows.Forms.ColumnHeader();
             Age = new System.Windows.Forms.ColumnHeader();
-            flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            listViewStudents = new System.Windows.Forms.ListView();
-            label1 = new System.Windows.Forms.Label();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
-            pnlTeachers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pnlTeachers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PictureForTeachers).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -146,51 +146,86 @@
             pnlStudents.Size = new System.Drawing.Size(938, 466);
             pnlStudents.TabIndex = 2;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new System.Drawing.Point(856, 197);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            flowLayoutPanel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new System.Drawing.Point(808, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(130, 123);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            
+            // 
+            // listViewStudents
+            // 
+            listViewStudents.Location = new System.Drawing.Point(16, 42);
+            listViewStudents.Name = "listViewStudents";
+            listViewStudents.Size = new System.Drawing.Size(766, 307);
+            listViewStudents.TabIndex = 1;
+            listViewStudents.UseCompatibleStateImageBehavior = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(13, 7);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(107, 32);
+            label1.TabIndex = 0;
+            label1.Text = "Students";
+            // 
             // pnlTeachers
             // 
             pnlTeachers.BackColor = System.Drawing.SystemColors.Control;
-            pnlTeachers.Controls.Add(label2);
-            pnlTeachers.Controls.Add(pictureBox2);
+            pnlTeachers.Controls.Add(Teacher_text);
+            pnlTeachers.Controls.Add(PictureForTeachers);
             pnlTeachers.Controls.Add(listViewTeachers);
             pnlTeachers.Location = new System.Drawing.Point(15, 30);
             pnlTeachers.Name = "pnlTeachers";
             pnlTeachers.Size = new System.Drawing.Size(932, 460);
             pnlTeachers.TabIndex = 2;
-            pnlTeachers.Paint += pnlTeachers_Paint;
+            
             // 
-            // label2
+            // Teacher_text
             // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(13, 4);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(106, 32);
-            label2.TabIndex = 2;
-            label2.Text = "Teachers";
+            Teacher_text.AutoSize = true;
+            Teacher_text.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Teacher_text.Location = new System.Drawing.Point(13, 4);
+            Teacher_text.Name = "Teacher_text";
+            Teacher_text.Size = new System.Drawing.Size(106, 32);
+            Teacher_text.TabIndex = 2;
+            Teacher_text.Text = "Teachers";
             // 
-            // pictureBox2
+            // PictureForTeachers
             // 
-            pictureBox2.Image = (System.Drawing.Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new System.Drawing.Point(802, -3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(130, 123);
-            pictureBox2.TabIndex = 4;
-            pictureBox2.TabStop = false;
+            PictureForTeachers.Image = (System.Drawing.Image)resources.GetObject("PictureForTeachers.Image");
+            PictureForTeachers.Location = new System.Drawing.Point(802, -3);
+            PictureForTeachers.Name = "PictureForTeachers";
+            PictureForTeachers.Size = new System.Drawing.Size(130, 123);
+            PictureForTeachers.TabIndex = 4;
+            PictureForTeachers.TabStop = false;
             // 
             // listViewTeachers
             // 
             listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { First_Name, Last_Name, Phone_Number, Age });
             listViewTeachers.FullRowSelect = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Phone_number";
-            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Phone_number";
+            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
             listViewTeachers.Location = new System.Drawing.Point(38, 51);
             listViewTeachers.Name = "listViewTeachers";
             listViewTeachers.Size = new System.Drawing.Size(761, 397);
             listViewTeachers.TabIndex = 1;
             listViewTeachers.UseCompatibleStateImageBehavior = false;
             listViewTeachers.View = System.Windows.Forms.View.Details;
-            listViewTeachers.SelectedIndexChanged += listViewTeachers_SelectedIndexChanged;
+            
             // 
             // First_Name
             // 
@@ -211,41 +246,6 @@
             // 
             Age.Text = "Age";
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new System.Drawing.Point(856, 197);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(200, 100);
-            flowLayoutPanel1.TabIndex = 3;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(808, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(130, 123);
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // listViewStudents
-            // 
-            listViewStudents.Location = new System.Drawing.Point(16, 42);
-            listViewStudents.Name = "listViewStudents";
-            listViewStudents.Size = new System.Drawing.Size(766, 307);
-            listViewStudents.TabIndex = 1;
-            listViewStudents.UseCompatibleStateImageBehavior = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label1.Location = new System.Drawing.Point(13, 7);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(107, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Students";
-            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -264,10 +264,10 @@
             pnlDashboard.PerformLayout();
             pnlStudents.ResumeLayout(false);
             pnlStudents.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pnlTeachers.ResumeLayout(false);
             pnlTeachers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PictureForTeachers).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,11 +291,11 @@
         private System.Windows.Forms.Panel pnlTeachers;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.ListView listViewTeachers;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Teacher_text;
         private System.Windows.Forms.ColumnHeader First_Name;
         private System.Windows.Forms.ColumnHeader Last_Name;
         private System.Windows.Forms.ColumnHeader Phone_Number;
         private System.Windows.Forms.ColumnHeader Age;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PictureForTeachers;
     }
 }

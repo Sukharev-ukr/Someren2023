@@ -143,24 +143,15 @@ namespace SomerenUI
             ShowStudentsPanel();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowTeacherPanel();
         }
 
-        private void pnlTeachers_Paint(object sender, PaintEventArgs e)
-        {
+       
 
-        }
-
-        private void listViewTeachers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }

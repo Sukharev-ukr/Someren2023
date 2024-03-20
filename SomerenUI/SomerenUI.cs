@@ -154,31 +154,5 @@ namespace SomerenUI
         {
             ShowStudentsPanel();
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listViewStudents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void drinksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // ...
-        }
-
-        private void SomerenUI_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ShowTeacherPanel();
-        }
-
     }
 }

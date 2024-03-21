@@ -32,11 +32,16 @@ namespace SomerenUI
         private void ShowStudentsPanel()
         {
             // hide all other panels
-            HideAllPanels(this);
+            // HideAllPanels(this);
+            pnlDashboard.Hide();
+            pnlTeachers.Hide();
+
 
 
             // show students
             pnlStudents.Show();
+            listViewStudents.Show();
+            pnlStudents.BringToFront();
 
             try
             {

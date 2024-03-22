@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,12 +61,22 @@
             Last_Name = new System.Windows.Forms.ColumnHeader();
             Phone_Number = new System.Windows.Forms.ColumnHeader();
             Age = new System.Windows.Forms.ColumnHeader();
+            pnlRooms = new System.Windows.Forms.Panel();
+            labelTitleRooms = new System.Windows.Forms.Label();
+            pictureBox20 = new System.Windows.Forms.PictureBox();
+            listViewRooms = new System.Windows.Forms.ListView();
+            columnRoomID = new System.Windows.Forms.ColumnHeader();
+            columnHeader20 = new System.Windows.Forms.ColumnHeader();
+            columnHeader21 = new System.Windows.Forms.ColumnHeader();
+            columnHeader22 = new System.Windows.Forms.ColumnHeader();
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)studentsPictureBox).BeginInit();
             pnlTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureForTeachers).BeginInit();
+            pnlRooms.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -125,6 +136,7 @@
             roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
             roomsToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
             roomsToolStripMenuItem.Text = "Rooms";
+            roomsToolStripMenuItem.Click += roomsToolStripMenuItem_Click;
             // 
             // drinksToolStripMenuItem
             // 
@@ -154,7 +166,6 @@
             // 
             // pnlStudents
             // 
-            pnlStudents.Controls.Add(pnlTeachers);
             pnlStudents.Controls.Add(flowLayoutPanel1);
             pnlStudents.Controls.Add(studentsPictureBox);
             pnlStudents.Controls.Add(listViewStudents);
@@ -246,7 +257,7 @@
             pnlTeachers.Controls.Add(Teacher_text);
             pnlTeachers.Controls.Add(PictureForTeachers);
             pnlTeachers.Controls.Add(listViewTeachers);
-            pnlTeachers.Location = new System.Drawing.Point(5, 0);
+            pnlTeachers.Location = new System.Drawing.Point(17, 45);
             pnlTeachers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             pnlTeachers.Name = "pnlTeachers";
             pnlTeachers.Size = new System.Drawing.Size(1331, 767);
@@ -307,11 +318,81 @@
             // 
             Age.Text = "Age";
             // 
+            // pnlRooms
+            // 
+            pnlRooms.BackColor = System.Drawing.SystemColors.Control;
+            pnlRooms.Controls.Add(labelTitleRooms);
+            pnlRooms.Controls.Add(pictureBox20);
+            pnlRooms.Controls.Add(listViewRooms);
+            pnlRooms.Location = new System.Drawing.Point(17, 40);
+            pnlRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pnlRooms.Name = "pnlRooms";
+            pnlRooms.Size = new System.Drawing.Size(1331, 767);
+            pnlRooms.TabIndex = 5;
+            // 
+            // labelTitleRooms
+            // 
+            labelTitleRooms.AutoSize = true;
+            labelTitleRooms.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            labelTitleRooms.Location = new System.Drawing.Point(19, 7);
+            labelTitleRooms.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            labelTitleRooms.Name = "labelTitleRooms";
+            labelTitleRooms.Size = new System.Drawing.Size(129, 48);
+            labelTitleRooms.TabIndex = 2;
+            labelTitleRooms.Text = "Rooms";
+            // 
+            // pictureBox20
+            // 
+            pictureBox20.Image = (System.Drawing.Image)resources.GetObject("pictureBox20.Image");
+            pictureBox20.Location = new System.Drawing.Point(1146, -5);
+            pictureBox20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pictureBox20.Name = "pictureBox20";
+            pictureBox20.Size = new System.Drawing.Size(186, 205);
+            pictureBox20.TabIndex = 4;
+            pictureBox20.TabStop = false;
+            // 
+            // listViewRooms
+            // 
+            listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnRoomID, columnHeader20, columnHeader21, columnHeader22 });
+            listViewRooms.FullRowSelect = true;
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Phone_number";
+            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
+            listViewRooms.Location = new System.Drawing.Point(54, 85);
+            listViewRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            listViewRooms.Name = "listViewRooms";
+            listViewRooms.Size = new System.Drawing.Size(1085, 659);
+            listViewRooms.TabIndex = 1;
+            listViewRooms.UseCompatibleStateImageBehavior = false;
+            listViewRooms.View = System.Windows.Forms.View.Details;
+            // 
+            // columnRoomID
+            // 
+            columnRoomID.Text = "Room_ID";
+            columnRoomID.Width = 150;
+            // 
+            // columnHeader20
+            // 
+            columnHeader20.Text = "Building";
+            columnHeader20.Width = 200;
+            // 
+            // columnHeader21
+            // 
+            columnHeader21.Text = "Room_Type";
+            columnHeader21.Width = 200;
+            // 
+            // columnHeader22
+            // 
+            columnHeader22.Text = "Room_Capacity";
+            columnHeader22.Width = 200;
+            // 
             // SomerenUI
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1924, 1050);
+            Controls.Add(pnlRooms);
+            Controls.Add(pnlTeachers);
             Controls.Add(menuStrip1);
             Controls.Add(pnlStudents);
             Controls.Add(pnlDashboard);
@@ -329,6 +410,9 @@
             pnlTeachers.ResumeLayout(false);
             pnlTeachers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureForTeachers).EndInit();
+            pnlRooms.ResumeLayout(false);
+            pnlRooms.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -385,5 +469,13 @@
         private System.Windows.Forms.ColumnHeader StudentLastNameColumn;
         private System.Windows.Forms.ColumnHeader StudentPhoneColumn;
         private System.Windows.Forms.ColumnHeader StudentClassColumn;
+        private System.Windows.Forms.Panel pnlRooms;
+        private System.Windows.Forms.Label labelTitleRooms;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.ListView listViewRooms;
+        private System.Windows.Forms.ColumnHeader columnRoomID;
+        private System.Windows.Forms.ColumnHeader columnHeader20;
+        private System.Windows.Forms.ColumnHeader columnHeader21;
+        private System.Windows.Forms.ColumnHeader columnHeader22;
     }
 }

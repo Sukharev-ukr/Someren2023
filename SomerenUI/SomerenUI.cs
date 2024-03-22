@@ -22,6 +22,7 @@ namespace SomerenUI
             // hide all other panels
             pnlStudents.Hide();
             pnlTeachers.Hide();
+            pnlRooms.Hide();
 
 
             // show dashboard
@@ -35,6 +36,7 @@ namespace SomerenUI
             // HideAllPanels(this);
             pnlDashboard.Hide();
             pnlTeachers.Hide();
+
 
 
 
@@ -52,6 +54,34 @@ namespace SomerenUI
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong while loading the students: " + e.Message);
+            }
+        }
+
+        private void ShowRoomsPanel()
+        {
+            // hide all other panels
+            // HideAllPanels(this);
+            pnlDashboard.Hide();
+            pnlTeachers.Hide();
+            pnlStudents.Hide();
+
+
+
+
+            // show Rooms
+            pnlRooms.Show();
+            listViewRooms.Show();
+            pnlRooms.BringToFront();
+
+            try
+            {
+                // get and display all students
+                List<Room> rooms = GetRooms();
+                DisplayRooms(rooms);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading the rooms: " + e.Message);
             }
         }
         public static void HideAllPanels(Form form)
@@ -112,6 +142,13 @@ namespace SomerenUI
             return teachers;
         }
 
+        private List<Room> GetRooms()
+        {
+            RoomService roomService = new RoomService();
+            List<Room> rooms = roomService.GetRooms();
+            return rooms;
+        }
+
         private void DisplayStudents(List<Student> students)
         {
             // clear the listview before filling it
@@ -149,6 +186,25 @@ namespace SomerenUI
             }
         }
 
+        private void DisplayRooms(List<Room> rooms)
+        {
+            // clear the listview before filling it
+            listViewStudents.Items.Clear();
+
+            foreach (Room room in rooms)
+            {
+                // Display Room Number
+                ListViewItem liRoomNumber = new ListViewItem(room.RoomNumber.ToString());
+                liRoomNumber.SubItems.Add(room.RoomBuilding);
+                liRoomNumber.SubItems.Add(room.RoomType.ToString());
+                liRoomNumber.SubItems.Add(room.RoomNumber.ToString());
+                liRoomNumber.SubItems.Add(room.RoomCapacity.ToString());
+
+                liRoomNumber.Tag = room;
+                listViewRooms.Items.Add(liRoomNumber);
+            }
+        }
+
         private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
         {
             ShowDashboardPanel();
@@ -173,6 +229,12 @@ namespace SomerenUI
         {
             ShowTeacherPanel();
         }
+
+        private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRoomsPanel();
+        }
+
 
     }
 }

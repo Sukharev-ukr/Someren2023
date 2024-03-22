@@ -22,11 +22,11 @@ namespace SomerenDAL
             {
                 Room room = new Room()
                 {
-                    Id = (int)dr["ID"],
-                    Number = (int)dr["RoomID"],
-                    Building = dr["Building"].ToString(),
+         
+                    RoomNumber = (int)dr["RoomID"],
+                    RoomBuilding = dr["Building"].ToString(),
                     RoomType = dr["RoomType"].ToString(),
-                    Capacity = (int)dr["RoomCapacity"]
+                    RoomCapacity = (int)dr["RoomCapacity"]
                 };
                 rooms.Add(room);
             }

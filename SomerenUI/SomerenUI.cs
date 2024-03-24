@@ -13,6 +13,8 @@ namespace SomerenUI
             InitializeComponent();
             HideAllPanels(this);
             pnlDashboard.Show();
+            this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
+            this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
         }
 
 
@@ -35,9 +37,11 @@ namespace SomerenUI
         private void ShowStudentsPanel()
         {
             // hide all other panels
-            HideAllPanels(this);
+            // HideAllPanels(this);
             pnlDashboard.Hide();
             pnlTeachers.Hide();
+            pnlRooms.Hide();
+            pnlDrinks.Hide();
 
 
 
@@ -45,7 +49,7 @@ namespace SomerenUI
             // show students
             pnlStudents.Show();
             listViewStudents.Show();
-            pnlStudents.BringToFront();
+            //  pnlStudents.BringToFront();
 
             try
             {
@@ -69,7 +73,7 @@ namespace SomerenUI
             pnlDrinks.Hide();
 
 
-            // show Rooms
+            // show rooms
             pnlRooms.Show();
             listViewRooms.Show();
             pnlRooms.BringToFront();
@@ -235,7 +239,6 @@ namespace SomerenUI
                 ListViewItem liRoomNumber = new ListViewItem(room.RoomNumber.ToString());
                 liRoomNumber.SubItems.Add(room.RoomBuilding);
                 liRoomNumber.SubItems.Add(room.RoomType.ToString());
-                liRoomNumber.SubItems.Add(room.RoomNumber.ToString());
                 liRoomNumber.SubItems.Add(room.RoomCapacity.ToString());
 
                 liRoomNumber.Tag = room;
@@ -283,6 +286,7 @@ namespace SomerenUI
             ShowDrinksPanel();
         }
 
+
         private void lecturersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowTeacherPanel();
@@ -292,7 +296,6 @@ namespace SomerenUI
         {
             ShowRoomsPanel();
         }
-
 
     }
 }

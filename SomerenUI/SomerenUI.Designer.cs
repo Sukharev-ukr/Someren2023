@@ -71,6 +71,7 @@
             columnHeader21 = new System.Windows.Forms.ColumnHeader();
             columnHeader22 = new System.Windows.Forms.ColumnHeader();
             pnlDrinks = new System.Windows.Forms.Panel();
+            button2 = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
             labelDrinksTitle = new System.Windows.Forms.Label();
             pictureBox80 = new System.Windows.Forms.PictureBox();
@@ -116,7 +117,6 @@
             dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
             dashboardToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
             dashboardToolStripMenuItem1.Text = "Dashboard";
-//            dashboardToolStripMenuItem1.Click += dashboardToolStripMenuItem1_Click;
             // 
             // exitToolStripMenuItem
             // 
@@ -403,6 +403,7 @@
             // pnlDrinks
             // 
             pnlDrinks.BackColor = System.Drawing.SystemColors.Control;
+            pnlDrinks.Controls.Add(button2);
             pnlDrinks.Controls.Add(button1);
             pnlDrinks.Controls.Add(labelDrinksTitle);
             pnlDrinks.Controls.Add(pictureBox80);
@@ -413,11 +414,21 @@
             pnlDrinks.Size = new System.Drawing.Size(1327, 765);
             pnlDrinks.TabIndex = 6;
             // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(1165, 224);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(112, 34);
+            button2.TabIndex = 6;
+            button2.Text = "Edit";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(1037, 149);
+            button1.Location = new System.Drawing.Point(1165, 264);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(88, 34);
+            button1.Size = new System.Drawing.Size(112, 34);
             button1.TabIndex = 5;
             button1.Text = "Remove";
             button1.UseVisualStyleBackColor = true;
@@ -595,5 +606,6 @@
         private System.Windows.Forms.ColumnHeader columnDrinkPrice;
         private System.Windows.Forms.ColumnHeader columnDrinkStock;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

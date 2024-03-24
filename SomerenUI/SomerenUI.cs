@@ -3,6 +3,7 @@ using SomerenModel;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
+using Microsoft.VisualBasic;
 
 namespace SomerenUI
 {
@@ -307,6 +308,49 @@ namespace SomerenUI
                 ListViewItem selectedItem = listViewDrink.SelectedItems[0];
                 listViewDrink.Items.Remove(selectedItem);
             }
+        }
+
+        private void EditSelectedDrink()
+        {
+            if (listViewDrink.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewDrink.SelectedItems[0];
+
+                // Get the current values of the selected item
+                string currentName = selectedItem.SubItems[1].Text;
+                string currentType = selectedItem.SubItems[3].Text;
+                string currentPrice = selectedItem.SubItems[4].Text;
+                string currentStock = selectedItem.SubItems[5].Text;
+
+                // Display a dialog for the user to input the new values
+                string newName = Interaction.InputBox("Enter new name:", "Edit Drink", currentName);
+                string newType = Interaction.InputBox("Enter new type:", "Edit Drink", currentType);
+                string newPrice = Interaction.InputBox("Enter new price:", "Edit Drink", currentPrice);
+                string newStock = Interaction.InputBox("Enter new stock:", "Edit Drink", currentStock);
+
+                // Update the ListView item if new values were provided
+                if (!string.IsNullOrEmpty(newName))
+                {
+                    selectedItem.SubItems[1].Text = newName;
+                }
+                if (!string.IsNullOrEmpty(newType))
+                {
+                    selectedItem.SubItems[3].Text = newType;
+                }
+                if (!string.IsNullOrEmpty(newPrice))
+                {
+                    selectedItem.SubItems[4].Text = newPrice;
+                }
+                if (!string.IsNullOrEmpty(newStock))
+                {
+                    selectedItem.SubItems[5].Text = newStock;
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EditSelectedDrink();
         }
     }
 }

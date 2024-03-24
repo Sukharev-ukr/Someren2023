@@ -141,11 +141,10 @@ namespace SomerenUI
 
 
             // show teachers
-
             pnlTeachers.Show();
             listViewTeachers.Show();
             pnlTeachers.BringToFront();
-            // listViewTeachers.Visible = true;
+
 
 
 
@@ -163,6 +162,12 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
             }
         }
+        private void ShowRevenuePanel()
+        {
+            // RevenuePanel
+        }
+
+
 
         private List<Student> GetStudents()
         {
@@ -224,6 +229,7 @@ namespace SomerenUI
                 li.SubItems.Add(teacher.SecondName);
                 li.SubItems.Add(teacher.Phone);
                 li.SubItems.Add(teacher.Age.ToString());
+                li.SubItems.Add(teacher.RoomID.ToString());
                 li.Tag = teacher;
                 listViewTeachers.Items.Add(li);
             }
@@ -291,6 +297,7 @@ namespace SomerenUI
             ShowTeacherPanel();
         }
 
+
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowRoomsPanel();
@@ -351,6 +358,7 @@ namespace SomerenUI
         private void buttonEditDrink_Click(object sender, EventArgs e)
         {
             EditSelectedDrink();
+
         }
     }
 }

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
             System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -267,7 +267,6 @@
             // pnlTeachers
             // 
             pnlTeachers.BackColor = System.Drawing.SystemColors.Control;
-            pnlTeachers.Controls.Add(pnlRooms);
             pnlTeachers.Controls.Add(Teacher_text);
             pnlTeachers.Controls.Add(PictureForTeachers);
             pnlTeachers.Controls.Add(listViewTeachers);
@@ -283,7 +282,7 @@
             pnlRooms.Controls.Add(labelTitleRooms);
             pnlRooms.Controls.Add(pictureBox20);
             pnlRooms.Controls.Add(listViewRooms);
-            pnlRooms.Location = new System.Drawing.Point(0, 0);
+            pnlRooms.Location = new System.Drawing.Point(17, 45);
             pnlRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             pnlRooms.Name = "pnlRooms";
             pnlRooms.Size = new System.Drawing.Size(1331, 767);
@@ -295,10 +294,10 @@
             pnlDrinks.Controls.Add(labelDrinksTitle);
             pnlDrinks.Controls.Add(pictureBox80);
             pnlDrinks.Controls.Add(listViewDrink);
-            pnlDrinks.Location = new System.Drawing.Point(18, 45);
+            pnlDrinks.Location = new System.Drawing.Point(17, 45);
             pnlDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             pnlDrinks.Name = "pnlDrinks";
-            pnlDrinks.Size = new System.Drawing.Size(1331, 767);
+            pnlDrinks.Size = new System.Drawing.Size(1327, 765);
             pnlDrinks.TabIndex = 6;
             // 
             // labelDrinksTitle
@@ -392,9 +391,9 @@
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnRoomID, columnHeader20, columnHeader21, columnHeader22 });
             listViewRooms.FullRowSelect = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Phone_number";
-            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Phone_number";
+            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
             listViewRooms.Location = new System.Drawing.Point(54, 85);
             listViewRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             listViewRooms.Name = "listViewRooms";
@@ -448,9 +447,9 @@
             // 
             listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { First_Name, Last_Name, Phone_Number, Age });
             listViewTeachers.FullRowSelect = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Phone_number";
-            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Phone_number";
+            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
             listViewTeachers.Location = new System.Drawing.Point(54, 85);
             listViewTeachers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             listViewTeachers.Name = "listViewTeachers";
@@ -484,6 +483,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1924, 1050);
             Controls.Add(pnlDrinks);
+            Controls.Add(pnlRooms);
             Controls.Add(pnlTeachers);
             Controls.Add(menuStrip1);
             Controls.Add(pnlStudents);

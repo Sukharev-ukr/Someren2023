@@ -266,10 +266,8 @@ namespace SomerenUI
             }
         }
 
-        private void dashboardToolStripMenuItem1_Click(object sender, System.EventArgs e)
-        {
-            ShowDashboardPanel();
-        }
+
+
 
         private void exitToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
@@ -297,5 +295,18 @@ namespace SomerenUI
             ShowRoomsPanel();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RemoveSelectedDrink();
+        }
+
+        private void RemoveSelectedDrink()
+        {
+            if (listViewDrink.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewDrink.SelectedItems[0];
+                listViewDrink.Items.Remove(selectedItem);
+            }
+        }
     }
 }

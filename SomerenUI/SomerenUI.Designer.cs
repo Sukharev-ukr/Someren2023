@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,8 +71,8 @@
             columnHeader21 = new System.Windows.Forms.ColumnHeader();
             columnHeader22 = new System.Windows.Forms.ColumnHeader();
             pnlDrinks = new System.Windows.Forms.Panel();
-            button2 = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            buttonEditDrinks = new System.Windows.Forms.Button();
+            buttonRemove = new System.Windows.Forms.Button();
             labelDrinksTitle = new System.Windows.Forms.Label();
             pictureBox80 = new System.Windows.Forms.PictureBox();
             listViewDrink = new System.Windows.Forms.ListView();
@@ -302,9 +302,9 @@
             // 
             listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { First_Name, Last_Name, Phone_Number, Age });
             listViewTeachers.FullRowSelect = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Phone_number";
-            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "Phone_number";
+            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup4 });
             listViewTeachers.Location = new System.Drawing.Point(54, 85);
             listViewTeachers.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             listViewTeachers.Name = "listViewTeachers";
@@ -369,9 +369,9 @@
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnRoomID, columnHeader20, columnHeader21, columnHeader22 });
             listViewRooms.FullRowSelect = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Phone_number";
-            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
+            listViewGroup5.Header = "ListViewGroup";
+            listViewGroup5.Name = "Phone_number";
+            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup5 });
             listViewRooms.Location = new System.Drawing.Point(54, 85);
             listViewRooms.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             listViewRooms.Name = "listViewRooms";
@@ -403,8 +403,8 @@
             // pnlDrinks
             // 
             pnlDrinks.BackColor = System.Drawing.SystemColors.Control;
-            pnlDrinks.Controls.Add(button2);
-            pnlDrinks.Controls.Add(button1);
+            pnlDrinks.Controls.Add(buttonEditDrinks);
+            pnlDrinks.Controls.Add(buttonRemove);
             pnlDrinks.Controls.Add(labelDrinksTitle);
             pnlDrinks.Controls.Add(pictureBox80);
             pnlDrinks.Controls.Add(listViewDrink);
@@ -414,25 +414,25 @@
             pnlDrinks.Size = new System.Drawing.Size(1327, 765);
             pnlDrinks.TabIndex = 6;
             // 
-            // button2
+            // buttonEditDrinks
             // 
-            button2.Location = new System.Drawing.Point(1165, 224);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(112, 34);
-            button2.TabIndex = 6;
-            button2.Text = "Edit";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            buttonEditDrinks.Location = new System.Drawing.Point(1165, 224);
+            buttonEditDrinks.Name = "buttonEditDrinks";
+            buttonEditDrinks.Size = new System.Drawing.Size(112, 34);
+            buttonEditDrinks.TabIndex = 6;
+            buttonEditDrinks.Text = "Edit";
+            buttonEditDrinks.UseVisualStyleBackColor = true;
+            buttonEditDrinks.Click += button2_Click;
             // 
-            // button1
+            // buttonRemove
             // 
-            button1.Location = new System.Drawing.Point(1165, 264);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "Remove";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            buttonRemove.Location = new System.Drawing.Point(1165, 264);
+            buttonRemove.Name = "buttonRemove";
+            buttonRemove.Size = new System.Drawing.Size(112, 34);
+            buttonRemove.TabIndex = 5;
+            buttonRemove.Text = "Remove";
+            buttonRemove.UseVisualStyleBackColor = true;
+            buttonRemove.Click += button1_Click;
             // 
             // labelDrinksTitle
             // 
@@ -459,9 +459,9 @@
             // 
             listViewDrink.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnDrinkID, columnDrinkName, columnDrinkVAT, columnDrinkType, columnDrinkPrice, columnDrinkStock });
             listViewDrink.FullRowSelect = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "Phone_number";
-            listViewDrink.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup3 });
+            listViewGroup6.Header = "ListViewGroup";
+            listViewGroup6.Name = "Phone_number";
+            listViewDrink.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup6 });
             listViewDrink.Location = new System.Drawing.Point(54, 85);
             listViewDrink.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             listViewDrink.Name = "listViewDrink";
@@ -605,7 +605,7 @@
         private System.Windows.Forms.ColumnHeader columnDrinkType;
         private System.Windows.Forms.ColumnHeader columnDrinkPrice;
         private System.Windows.Forms.ColumnHeader columnDrinkStock;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonRemove;
+        private System.Windows.Forms.Button buttonEditDrinks;
     }
 }

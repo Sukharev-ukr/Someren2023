@@ -34,7 +34,7 @@
             System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            dashboardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            dashboardToolStripMenuItem0 = new System.Windows.Forms.ToolStripMenuItem();
             exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,7 @@
             lblDashboard = new System.Windows.Forms.Label();
             pnlStudents = new System.Windows.Forms.Panel();
             flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            studentsPictureBox = new System.Windows.Forms.PictureBox();
+            studentsPictureSomeren = new System.Windows.Forms.PictureBox();
             listViewStudents = new System.Windows.Forms.ListView();
             StudentNumberColumn = new System.Windows.Forms.ColumnHeader();
             StudentRoomID = new System.Windows.Forms.ColumnHeader();
@@ -74,7 +74,7 @@
             buttonEditDrinks = new System.Windows.Forms.Button();
             buttonRemove = new System.Windows.Forms.Button();
             labelDrinksTitle = new System.Windows.Forms.Label();
-            pictureBox80 = new System.Windows.Forms.PictureBox();
+            pictureBoxSomerenDrinks = new System.Windows.Forms.PictureBox();
             listViewDrink = new System.Windows.Forms.ListView();
             columnDrinkID = new System.Windows.Forms.ColumnHeader();
             columnDrinkName = new System.Windows.Forms.ColumnHeader();
@@ -85,13 +85,13 @@
             menuStrip1.SuspendLayout();
             pnlDashboard.SuspendLayout();
             pnlStudents.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)studentsPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)studentsPictureSomeren).BeginInit();
             pnlTeachers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureForTeachers).BeginInit();
             pnlRooms.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
             pnlDrinks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox80).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSomerenDrinks).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -107,21 +107,21 @@
             // 
             // dashboardToolStripMenuItem
             // 
-            dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem1, exitToolStripMenuItem });
+            dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem0, exitToolStripMenuItem });
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             dashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
             dashboardToolStripMenuItem.Text = "Application";
             // 
-            // dashboardToolStripMenuItem1
+            // dashboardToolStripMenuItem0
             // 
-            dashboardToolStripMenuItem1.Name = "dashboardToolStripMenuItem1";
-            dashboardToolStripMenuItem1.Size = new System.Drawing.Size(202, 34);
-            dashboardToolStripMenuItem1.Text = "Dashboard";
+            dashboardToolStripMenuItem0.Name = "dashboardToolStripMenuItem0";
+            dashboardToolStripMenuItem0.Size = new System.Drawing.Size(270, 34);
+            dashboardToolStripMenuItem0.Text = "Dashboard";
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -181,7 +181,7 @@
             // pnlStudents
             // 
             pnlStudents.Controls.Add(flowLayoutPanel1);
-            pnlStudents.Controls.Add(studentsPictureBox);
+            pnlStudents.Controls.Add(studentsPictureSomeren);
             pnlStudents.Controls.Add(listViewStudents);
             pnlStudents.Controls.Add(studentsLabel);
             pnlStudents.Location = new System.Drawing.Point(17, 45);
@@ -198,15 +198,15 @@
             flowLayoutPanel1.Size = new System.Drawing.Size(286, 167);
             flowLayoutPanel1.TabIndex = 3;
             // 
-            // studentsPictureBox
+            // studentsPictureSomeren
             // 
-            studentsPictureBox.Image = (System.Drawing.Image)resources.GetObject("studentsPictureBox.Image");
-            studentsPictureBox.Location = new System.Drawing.Point(1154, 0);
-            studentsPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            studentsPictureBox.Name = "studentsPictureBox";
-            studentsPictureBox.Size = new System.Drawing.Size(186, 205);
-            studentsPictureBox.TabIndex = 2;
-            studentsPictureBox.TabStop = false;
+            studentsPictureSomeren.Image = (System.Drawing.Image)resources.GetObject("studentsPictureSomeren.Image");
+            studentsPictureSomeren.Location = new System.Drawing.Point(1154, 0);
+            studentsPictureSomeren.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            studentsPictureSomeren.Name = "studentsPictureSomeren";
+            studentsPictureSomeren.Size = new System.Drawing.Size(186, 205);
+            studentsPictureSomeren.TabIndex = 2;
+            studentsPictureSomeren.TabStop = false;
             // 
             // listViewStudents
             // 
@@ -406,7 +406,7 @@
             pnlDrinks.Controls.Add(buttonEditDrinks);
             pnlDrinks.Controls.Add(buttonRemove);
             pnlDrinks.Controls.Add(labelDrinksTitle);
-            pnlDrinks.Controls.Add(pictureBox80);
+            pnlDrinks.Controls.Add(pictureBoxSomerenDrinks);
             pnlDrinks.Controls.Add(listViewDrink);
             pnlDrinks.Location = new System.Drawing.Point(17, 45);
             pnlDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -422,7 +422,7 @@
             buttonEditDrinks.TabIndex = 6;
             buttonEditDrinks.Text = "Edit";
             buttonEditDrinks.UseVisualStyleBackColor = true;
-            buttonEditDrinks.Click += button2_Click;
+            buttonEditDrinks.Click += buttonEditDrink_Click;
             // 
             // buttonRemove
             // 
@@ -445,15 +445,15 @@
             labelDrinksTitle.TabIndex = 2;
             labelDrinksTitle.Text = "Drinks";
             // 
-            // pictureBox80
+            // pictureBoxSomerenDrinks
             // 
-            pictureBox80.Image = (System.Drawing.Image)resources.GetObject("pictureBox80.Image");
-            pictureBox80.Location = new System.Drawing.Point(1146, -5);
-            pictureBox80.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            pictureBox80.Name = "pictureBox80";
-            pictureBox80.Size = new System.Drawing.Size(186, 205);
-            pictureBox80.TabIndex = 4;
-            pictureBox80.TabStop = false;
+            pictureBoxSomerenDrinks.Image = (System.Drawing.Image)resources.GetObject("pictureBoxSomerenDrinks.Image");
+            pictureBoxSomerenDrinks.Location = new System.Drawing.Point(1146, -5);
+            pictureBoxSomerenDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pictureBoxSomerenDrinks.Name = "pictureBoxSomerenDrinks";
+            pictureBoxSomerenDrinks.Size = new System.Drawing.Size(186, 205);
+            pictureBoxSomerenDrinks.TabIndex = 4;
+            pictureBoxSomerenDrinks.TabStop = false;
             // 
             // listViewDrink
             // 
@@ -506,9 +506,9 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1924, 1050);
             Controls.Add(pnlDrinks);
-            Controls.Add(pnlRooms);
-            Controls.Add(pnlTeachers);
             Controls.Add(menuStrip1);
+            Controls.Add(pnlTeachers);
+            Controls.Add(pnlRooms);
             Controls.Add(pnlStudents);
             Controls.Add(pnlDashboard);
             MainMenuStrip = menuStrip1;
@@ -521,7 +521,7 @@
             pnlDashboard.PerformLayout();
             pnlStudents.ResumeLayout(false);
             pnlStudents.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)studentsPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)studentsPictureSomeren).EndInit();
             pnlTeachers.ResumeLayout(false);
             pnlTeachers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureForTeachers).EndInit();
@@ -530,7 +530,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
             pnlDrinks.ResumeLayout(false);
             pnlDrinks.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox80).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxSomerenDrinks).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -539,7 +539,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem0;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
@@ -548,7 +548,7 @@
         private System.Windows.Forms.Panel pnlDashboard;
         private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Panel pnlStudents;
-        private System.Windows.Forms.PictureBox studentsPictureBox;
+        private System.Windows.Forms.PictureBox studentsPictureSomeren;
         private System.Windows.Forms.ListView listViewStudents;
         private System.Windows.Forms.Label studentsLabel;
 
@@ -597,7 +597,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader22;
         private System.Windows.Forms.Panel pnlDrinks;
         private System.Windows.Forms.Label labelDrinksTitle;
-        private System.Windows.Forms.PictureBox pictureBox80;
+        private System.Windows.Forms.PictureBox pictureBoxSomerenDrinks;
         private System.Windows.Forms.ListView listViewDrink;
         private System.Windows.Forms.ColumnHeader columnDrinkID;
         private System.Windows.Forms.ColumnHeader columnDrinkName;

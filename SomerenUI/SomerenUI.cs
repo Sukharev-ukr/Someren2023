@@ -16,8 +16,8 @@ namespace SomerenUI
             pnlDashboard.Show();
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
+            this.Controls.Add(pnlStudents);
         }
-
 
 
         private void ShowDashboardPanel()
@@ -50,7 +50,7 @@ namespace SomerenUI
             // show students
             pnlStudents.Show();
             listViewStudents.Show();
-            //  pnlStudents.BringToFront();
+            pnlStudents.BringToFront();
 
             try
             {
@@ -141,11 +141,10 @@ namespace SomerenUI
 
 
             // show teachers
-
             pnlTeachers.Show();
             listViewTeachers.Show();
             pnlTeachers.BringToFront();
-            // listViewTeachers.Visible = true;
+
 
 
 
@@ -163,6 +162,8 @@ namespace SomerenUI
                 MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
             }
         }
+
+
 
         private List<Student> GetStudents()
         {
@@ -291,6 +292,7 @@ namespace SomerenUI
             ShowTeacherPanel();
         }
 
+
         private void roomsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowRoomsPanel();
@@ -351,6 +353,7 @@ namespace SomerenUI
         private void buttonEditDrink_Click(object sender, EventArgs e)
         {
             EditSelectedDrink();
+
         }
     }
 }

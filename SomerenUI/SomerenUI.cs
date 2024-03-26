@@ -19,7 +19,7 @@ namespace SomerenUI
             this.Controls.Add(pnlStudents);
         }
 
-
+         
         private void ShowDashboardPanel()
         {
             // hide all other panels

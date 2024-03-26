@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using System;
 using Microsoft.VisualBasic;
+using SomerenDAL;
 
 namespace SomerenUI
 {
@@ -160,6 +161,39 @@ namespace SomerenUI
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong while loading the teachers: " + e.Message);
+            }
+        }
+
+        private void ShowRevenuePanel()
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlDrinks.Hide();
+            pnlStudents.Hide();
+            pnlRooms.Hide();
+            pnlTeachers.Hide();
+
+
+            // show teachers
+            pnlRevenue.Show();
+            ListviewRevenue.Show();
+            pnlRevenue.BringToFront();
+
+
+
+
+
+            try
+            {
+                // get and display all students
+                List<Teacher> teachers = GetLecturers();
+
+                DisplayTeachers(teachers);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading revenue panel " + e.Message);
             }
         }
 
@@ -399,6 +433,68 @@ namespace SomerenUI
         private void buttonOrderDrink_Click(object sender, EventArgs e)
         {
             OrderSelectedDrink();
+        }
+
+        private void pnlTeachers_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void GenerateRevenue_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime startDate = StartPick.Value;
+                DateTime endDate = EndPick.Value;
+
+                if (startDate <= endDate && endDate <= DateTime.Now)
+                {
+                    GenerateRevenueReport(startDate, endDate);
+                }
+                else
+                {
+                    MessageBox.Show("The date you are trying to select is invalid. Please select a valid date.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while generating the revenue report: " + ex.Message);
+            }
+        }
+
+        public void GenerateRevenueReport(DateTime startDate, DateTime endDate)
+        {
+            OrderDao orderDao = new OrderDao();
+
+            int numberOfDrinksSold = orderDao.GetTotalDrinksSold(startDate, endDate);
+            double totalTurnover = orderDao.GetTurnover(startDate, endDate);
+            int numberOfCustomers = orderDao.GetNumberOfCustomers(startDate, endDate);
+
+            // Clear existing items in ListViewRevenue
+            ListviewRevenue.Clear();
+
+            // Add new items with updated values
+            //ListViewItem item = new ListViewItem("Sales");
+            //item.SubItems.Add(numberOfDrinksSold.ToString());
+            //ListviewRevenue.Items.Add(item);
+
+            //item = new ListViewItem("Turnover");
+            //item.SubItems.Add(totalTurnover.ToString("C"));
+            //ListviewRevenue.Items.Add(item);
+
+            //item = new ListViewItem("Number of customers");
+            //item.SubItems.Add(numberOfCustomers.ToString());
+            //ListviewRevenue.Items.Add(item);
+
+            LabelSales.Text = $"Sales: \n{numberOfDrinksSold}";
+            LabelTurnover.Text = $"Turnover: \n{totalTurnover:C}";
+            LabelNumber.Text = $"Number of customers: \n{numberOfCustomers}";
+        }
+
+        private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRevenuePanel();
+
         }
     }
 }

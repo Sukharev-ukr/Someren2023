@@ -44,6 +44,7 @@
             pnlDashboard = new System.Windows.Forms.Panel();
             lblDashboard = new System.Windows.Forms.Label();
             pnlDrinks = new System.Windows.Forms.Panel();
+            buttonOrderDrink = new System.Windows.Forms.Button();
             buttonEditDrinks = new System.Windows.Forms.Button();
             buttonRemove = new System.Windows.Forms.Button();
             labelDrinksTitle = new System.Windows.Forms.Label();
@@ -181,6 +182,7 @@
             // pnlDrinks
             // 
             pnlDrinks.BackColor = System.Drawing.SystemColors.Control;
+            pnlDrinks.Controls.Add(buttonOrderDrink);
             pnlDrinks.Controls.Add(buttonEditDrinks);
             pnlDrinks.Controls.Add(buttonRemove);
             pnlDrinks.Controls.Add(labelDrinksTitle);
@@ -192,12 +194,23 @@
             pnlDrinks.Size = new System.Drawing.Size(1340, 861);
             pnlDrinks.TabIndex = 6;
             // 
+            // buttonOrderDrink
+            // 
+            buttonOrderDrink.Location = new System.Drawing.Point(1055, 145);
+            buttonOrderDrink.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            buttonOrderDrink.Name = "buttonOrderDrink";
+            buttonOrderDrink.Size = new System.Drawing.Size(97, 39);
+            buttonOrderDrink.TabIndex = 7;
+            buttonOrderDrink.Text = "Order";
+            buttonOrderDrink.UseVisualStyleBackColor = true;
+            buttonOrderDrink.Click += buttonOrderDrink_Click;
+            // 
             // buttonEditDrinks
             // 
             buttonEditDrinks.Location = new System.Drawing.Point(1055, 200);
             buttonEditDrinks.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             buttonEditDrinks.Name = "buttonEditDrinks";
-            buttonEditDrinks.Size = new System.Drawing.Size(97, 29);
+            buttonEditDrinks.Size = new System.Drawing.Size(97, 35);
             buttonEditDrinks.TabIndex = 6;
             buttonEditDrinks.Text = "Edit";
             buttonEditDrinks.UseVisualStyleBackColor = true;
@@ -208,7 +221,7 @@
             buttonRemove.Location = new System.Drawing.Point(1055, 251);
             buttonRemove.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new System.Drawing.Size(97, 29);
+            buttonRemove.Size = new System.Drawing.Size(97, 35);
             buttonRemove.TabIndex = 6;
             buttonRemove.Text = "Remove";
             buttonRemove.UseVisualStyleBackColor = true;
@@ -286,7 +299,7 @@
             pnlTeachers.Controls.Add(Teacher_text);
             pnlTeachers.Controls.Add(PictureForTeachers);
             pnlTeachers.Controls.Add(listViewTeachers);
-            pnlTeachers.Location = new System.Drawing.Point(18, 45);
+            pnlTeachers.Location = new System.Drawing.Point(10, 545);
             pnlTeachers.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
             pnlTeachers.Name = "pnlTeachers";
             pnlTeachers.Size = new System.Drawing.Size(1340, 861);
@@ -591,6 +604,6 @@
         private System.Windows.Forms.ColumnHeader columnDrinkStock;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonEditDrinks;
-
+        private System.Windows.Forms.Button buttonOrderDrink;
     }
 }

@@ -28,7 +28,7 @@ namespace SomerenDAL
                     conn.Open();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 //Print.ErrorLog(e);
                 throw;
@@ -52,7 +52,7 @@ namespace SomerenDAL
                 adapter.InsertCommand = command;
                 command.ExecuteNonQuery();
             }
-            catch (Exception )
+            catch (Exception e)
             {
                 //Print.ErrorLog(e);
                 throw;
@@ -76,7 +76,7 @@ namespace SomerenDAL
                 adapter.InsertCommand = command;
                 command.ExecuteNonQuery();
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
                 // Print.ErrorLog(e);
                 throw;
@@ -104,7 +104,7 @@ namespace SomerenDAL
                 adapter.Fill(dataSet);
                 dataTable = dataSet.Tables[0];
             }
-            catch (SqlException )
+            catch (SqlException e)
             {
                 // Print.ErrorLog(e);
                 throw;

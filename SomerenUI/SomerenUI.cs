@@ -19,7 +19,7 @@ namespace SomerenUI
             this.Controls.Add(pnlStudents);
         }
 
-         
+
         private void ShowDashboardPanel()
         {
             // hide all other panels
@@ -350,10 +350,55 @@ namespace SomerenUI
             }
         }
 
+        private void OrderSelectedDrink()
+        {
+            if (listViewDrink.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewDrink.SelectedItems[0];
+
+                string currentName = selectedItem.SubItems[1].Text;
+                string currentPrice = selectedItem.SubItems[4].Text;
+                string currentStock = selectedItem.SubItems[5].Text;
+
+                string quantity = Interaction.InputBox("Enter quantity:", "Order Drink", "1");
+                string studentIdInput = Interaction.InputBox("Enter student ID:", "Order Drink", "1");
+
+                if (int.TryParse(quantity, out int quantityInt) && quantityInt <= int.Parse(currentStock) && int.TryParse(studentIdInput, out int studentId))
+                {
+                    double totalPrice = quantityInt * double.Parse(currentPrice);
+
+                    selectedItem.SubItems[5].Text = (int.Parse(currentStock) - quantityInt).ToString();
+
+                    MessageBox.Show($"The total price is: {totalPrice.ToString()}");
+
+                    int drinkId = int.Parse(selectedItem.SubItems[0].Text);
+
+                    StoreOrderInDatabase(studentId, drinkId, quantityInt);
+                }
+                else
+                {
+                    MessageBox.Show("Invalid quantity or student ID.");
+                }
+            }
+        }
+
+        private void StoreOrderInDatabase(int studentId, int drinkId, int quantity)
+        {
+            OrderService orderService = new OrderService();
+
+            orderService.StoreOrder(studentId, drinkId, quantity);
+        }
+
+
         private void buttonEditDrink_Click(object sender, EventArgs e)
         {
             EditSelectedDrink();
 
+        }
+
+        private void buttonOrderDrink_Click(object sender, EventArgs e)
+        {
+            OrderSelectedDrink();
         }
     }
 }

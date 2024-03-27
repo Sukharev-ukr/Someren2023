@@ -29,6 +29,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlRooms.Hide();
             pnlDrinks.Hide();
+            pnlActivity.Hide();
 
 
             // show dashboard
@@ -435,10 +436,6 @@ namespace SomerenUI
             OrderSelectedDrink();
         }
 
-        private void pnlTeachers_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void GenerateRevenue_Click(object sender, EventArgs e)
         {
@@ -497,6 +494,9 @@ namespace SomerenUI
 
         }
 
-        
+        private void dashboardToolStripMenuItem0_Click(object sender, EventArgs e)
+        {
+            ShowDashboardPanel();
+        }
     }
 }

@@ -40,7 +40,7 @@
             PictureActivity = new System.Windows.Forms.PictureBox();
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             dashboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            dashboardToolStripMenuItem0 = new System.Windows.Forms.ToolStripMenuItem();
+
             exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -191,17 +191,11 @@
             // 
             // dashboardToolStripMenuItem
             // 
-            dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem0, exitToolStripMenuItem });
+            dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {exitToolStripMenuItem });
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
             dashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
             dashboardToolStripMenuItem.Text = "Application";
-            // 
-            // dashboardToolStripMenuItem0
-            // 
-            dashboardToolStripMenuItem0.Name = "dashboardToolStripMenuItem0";
-            dashboardToolStripMenuItem0.Size = new System.Drawing.Size(202, 34);
-            dashboardToolStripMenuItem0.Text = "Dashboard";
-            dashboardToolStripMenuItem0.Click += dashboardToolStripMenuItem0_Click;
+
             // 
             // exitToolStripMenuItem
             // 
@@ -815,7 +809,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dashboardToolStripMenuItem0;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;

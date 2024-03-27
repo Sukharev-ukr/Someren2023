@@ -141,7 +141,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlRooms.Hide();
             pnlRevenue.Hide();
-            
+
 
 
             // show teachers
@@ -189,7 +189,7 @@ namespace SomerenUI
             try
             {
                 // get and display all students
-               // List<Order> orders = GetOrders();
+                // List<Order> orders = GetOrders();
 
                 //(teachers);
 
@@ -495,18 +495,13 @@ namespace SomerenUI
             ShowRevenuePanel();
 
         }
- Variant-A-Manage-students(Ihor)
         private List<ActivitySupervisor> GetActivitiesSupervisor()
         {
             ActivityService activityService = new ActivityService();
             List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
             return activitySupervisors;
 
-        private void dashboardToolStripMenuItem0_Click(object sender, EventArgs e)
-        {
-            ShowDashboardPanel();
 
         }
-
     }
 }

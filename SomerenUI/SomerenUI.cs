@@ -140,6 +140,8 @@ namespace SomerenUI
             pnlDrinks.Hide();
             pnlStudents.Hide();
             pnlRooms.Hide();
+            pnlRevenue.Hide();
+            
 
 
             // show teachers
@@ -175,7 +177,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
 
 
-            // show teachers
+            // show rev
             pnlRevenue.Show();
             ListviewRevenue.Show();
             pnlRevenue.BringToFront();
@@ -187,9 +189,9 @@ namespace SomerenUI
             try
             {
                 // get and display all students
-                List<Teacher> teachers = GetLecturers();
+               // List<Order> orders = GetOrders();
 
-                DisplayTeachers(teachers);
+                //(teachers);
 
             }
             catch (Exception e)
@@ -498,5 +500,6 @@ namespace SomerenUI
         {
             ShowDashboardPanel();
         }
+
     }
 }

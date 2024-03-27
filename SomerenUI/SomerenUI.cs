@@ -497,6 +497,12 @@ namespace SomerenUI
 
         }
 
-        
+        private List<ActivitySupervisor> GetActivitiesSupervisor()
+        {
+            ActivityService activityService = new ActivityService();
+            List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
+            return activitySupervisors;
+        }
+
     }
 }

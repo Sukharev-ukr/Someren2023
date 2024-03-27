@@ -43,6 +43,8 @@ namespace SomerenDAL
             return ReadActivitySupervisorTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
+
+
         private List<ActivitySupervisor> ReadActivitySupervisorTable(DataTable dataTable)
         {
             List<ActivitySupervisor> activitiesSupervisors = new List<ActivitySupervisor>();
@@ -53,6 +55,24 @@ namespace SomerenDAL
 
             }
             return activitiesSupervisors;
+        }
+
+        public void AddActivitySupervisor(ActivitySupervisor activitySupervisor)
+        {
+            string query = "INSERT INTO ActivitySupervisor (ActivityId, LecturerId) VALUES (@addActivityId, @addLecturerID)";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@addActivityId", activitySupervisor.ActivityID);
+            sqlParameters[1] = new SqlParameter("@addLecturerID", activitySupervisor.LecturerID);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void RemoveActivitySupervisor(ActivitySupervisor activitySupervisor)
+        {
+            string query = "DELETE FROM ActivitySupervisor WHERE ActivityID = @ActivityId AND LecturerID = @lecturerID";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@ActivityId", activitySupervisor.ActivityID);
+            sqlParameters[1] = new SqlParameter("@LecturerID", activitySupervisor.LecturerID);
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }

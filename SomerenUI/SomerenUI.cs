@@ -495,10 +495,17 @@ namespace SomerenUI
             ShowRevenuePanel();
 
         }
+ Variant-A-Manage-students(Ihor)
+        private List<ActivitySupervisor> GetActivitiesSupervisor()
+        {
+            ActivityService activityService = new ActivityService();
+            List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
+            return activitySupervisors;
 
         private void dashboardToolStripMenuItem0_Click(object sender, EventArgs e)
         {
             ShowDashboardPanel();
+
         }
 
     }

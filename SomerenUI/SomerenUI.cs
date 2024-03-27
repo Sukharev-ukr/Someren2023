@@ -29,6 +29,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlRooms.Hide();
             pnlDrinks.Hide();
+            pnlActivity.Hide();
 
 
             // show dashboard
@@ -139,6 +140,8 @@ namespace SomerenUI
             pnlDrinks.Hide();
             pnlStudents.Hide();
             pnlRooms.Hide();
+            pnlRevenue.Hide();
+            
 
 
             // show teachers
@@ -174,7 +177,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
 
 
-            // show teachers
+            // show rev
             pnlRevenue.Show();
             ListviewRevenue.Show();
             pnlRevenue.BringToFront();
@@ -186,9 +189,9 @@ namespace SomerenUI
             try
             {
                 // get and display all students
-                List<Teacher> teachers = GetLecturers();
+               // List<Order> orders = GetOrders();
 
-                DisplayTeachers(teachers);
+                //(teachers);
 
             }
             catch (Exception e)
@@ -435,10 +438,6 @@ namespace SomerenUI
             OrderSelectedDrink();
         }
 
-        private void pnlTeachers_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void GenerateRevenue_Click(object sender, EventArgs e)
         {
@@ -496,12 +495,17 @@ namespace SomerenUI
             ShowRevenuePanel();
 
         }
-
+ Variant-A-Manage-students(Ihor)
         private List<ActivitySupervisor> GetActivitiesSupervisor()
         {
             ActivityService activityService = new ActivityService();
             List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
             return activitySupervisors;
+
+        private void dashboardToolStripMenuItem0_Click(object sender, EventArgs e)
+        {
+            ShowDashboardPanel();
+
         }
 
     }

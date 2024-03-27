@@ -29,7 +29,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlRooms.Hide();
             pnlDrinks.Hide();
-            pnlActivity.Hide();
+            // pnlActivity.Hide(); DO NOT HAVE IT YER BUT TO BE IMPLEMENTED
 
 
             // show dashboard
@@ -141,7 +141,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlRooms.Hide();
             pnlRevenue.Hide();
-            
+
 
 
             // show teachers
@@ -189,7 +189,7 @@ namespace SomerenUI
             try
             {
                 // get and display all students
-               // List<Order> orders = GetOrders();
+                // List<Order> orders = GetOrders();
 
                 //(teachers);
 

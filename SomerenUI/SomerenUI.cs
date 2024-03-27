@@ -24,7 +24,7 @@ namespace SomerenUI
         private void ShowDashboardPanel()
         {
             // hide all other panels
-
+            HideAllPanels(this);
             pnlStudents.Hide();
             pnlTeachers.Hide();
             pnlRooms.Hide();
@@ -496,5 +496,7 @@ namespace SomerenUI
             ShowRevenuePanel();
 
         }
+
+        
     }
 }

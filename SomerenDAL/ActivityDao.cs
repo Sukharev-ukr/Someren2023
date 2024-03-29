@@ -26,7 +26,7 @@ namespace SomerenDAL
             {
                 Activity activity = new Activity()
                 {
-                    ActivityId = (int)dr["activityId"],
+                    ActivityId = (int)dr["ActivityID"],
                     ActivitiyName = dr["activityName"].ToString(),
                     StartTime = (DateTime)dr["startTime"],
                     FinishTime = (DateTime)dr["finishTime"]

@@ -20,6 +20,10 @@ namespace SomerenUI
             this.Controls.Add(pnlStudents);
         }
 
+        private Teacher teacher;
+        private Activity activity;
+        private ActivitySupervisor activitySupervisor;
+
 
         private void ShowDashboardPanel()
         {
@@ -29,7 +33,8 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlRooms.Hide();
             pnlDrinks.Hide();
-            // pnlActivity.Hide(); DO NOT HAVE IT YER BUT TO BE IMPLEMENTED
+            pnlActivity.Hide();
+            // pnlActivity.Hide(); DO NOT HAVE IT YET BUT TO BE IMPLEMENTED
 
 
             // show dashboard
@@ -45,6 +50,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlRooms.Hide();
             pnlDrinks.Hide();
+            pnlActivity.Hide();
 
 
 
@@ -74,6 +80,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlStudents.Hide();
             pnlDrinks.Hide();
+            pnlActivity.Hide();
 
 
             // show rooms
@@ -101,6 +108,7 @@ namespace SomerenUI
             pnlTeachers.Hide();
             pnlStudents.Hide();
             pnlRooms.Hide();
+            pnlActivity.Hide();
 
 
             // show drinks
@@ -141,6 +149,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlRooms.Hide();
             pnlRevenue.Hide();
+            pnlActivity.Hide();
 
 
 
@@ -167,6 +176,56 @@ namespace SomerenUI
             }
         }
 
+        private void ShowActivityPanel()
+        {
+            // hide all other panels
+            HideAllPanels(this);
+            pnlDashboard.Hide();
+            pnlDrinks.Hide();
+            pnlStudents.Hide();
+            pnlRooms.Hide();
+            pnlRevenue.Hide();
+            pnlTeachers.Hide();
+            pnlActivity.Hide();
+
+
+            // show supervisors
+            pnlActivity.Show();
+            ListViewActivitySupervisors.Show();
+            pnlActivity.BringToFront();
+
+
+            try
+            {
+                // get and display all students
+
+                List<ActivitySupervisor> activitySupervisors = new List<ActivitySupervisor>();
+
+                DisplaySupervisors(activitySupervisors);
+
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading supervisors: " + e.Message);
+            }
+        }
+
+        private void pnlActivity_Paint(object sender, PaintEventArgs e)
+        {
+            // hide all other panels
+            pnlDashboard.Hide();
+            pnlTeachers.Hide();
+            pnlStudents.Hide();
+
+            // show Activity Supervisors
+            pnlActivity.Show();
+
+
+            UpdateActivitySupervisors();
+        }
+
         private void ShowRevenuePanel()
         {
             // hide all other panels
@@ -175,6 +234,7 @@ namespace SomerenUI
             pnlStudents.Hide();
             pnlRooms.Hide();
             pnlTeachers.Hide();
+            pnlActivity.Hide();
 
 
             // show rev
@@ -230,6 +290,20 @@ namespace SomerenUI
             return drinks;
         }
 
+        private List<ActivitySupervisor> GetActivitiesSupervisor()
+        {
+            ActivityService activityService = new ActivityService();
+            List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
+            return activitySupervisors;
+        }
+
+        private List<Activity> GetActivities()
+        {
+            ActivityService activityService = new ActivityService();
+            List<Activity> activities = activityService.GetAllActivities();
+            return activities;
+        }
+
         private void DisplayStudents(List<Student> students)
         {
             // clear the listview before filling it
@@ -266,6 +340,24 @@ namespace SomerenUI
                 listViewTeachers.Items.Add(li);
             }
         }
+
+        private void DisplaySupervisors(List<ActivitySupervisor> supervisors)
+        {
+            // clear the listview before filling it
+
+            listViewTeachers.Items.Clear();
+            ListViewActivitySupervisors.Items.Clear();
+
+            foreach (ActivitySupervisor supervisor in supervisors)
+            {
+                ListViewItem li = new ListViewItem(supervisor.Teacher.FirstName);
+                li.SubItems.Add(supervisor.Teacher.SecondName);
+                li.Tag = supervisor;
+                ListViewActivitySupervisors.Items.Add(li);
+            }
+        }
+
+
 
         private void DisplayRooms(List<Room> rooms)
         {
@@ -472,22 +564,11 @@ namespace SomerenUI
             // Clear existing items in ListViewRevenue
             ListviewRevenue.Clear();
 
-            // Add new items with updated values
-            //ListViewItem item = new ListViewItem("Sales");
-            //item.SubItems.Add(numberOfDrinksSold.ToString());
-            //ListviewRevenue.Items.Add(item);
 
-            //item = new ListViewItem("Turnover");
-            //item.SubItems.Add(totalTurnover.ToString("C"));
-            //ListviewRevenue.Items.Add(item);
+            TotalNumberOfSalesText.Text = $"Total number of sales: \n{numberOfDrinksSold}";
+            TurnoverPlaneText.Text = $"Turnover: \n{totalTurnover:C}";
+            NumberOfCustomersPlaneText.Text = $"Number of customers: \n{numberOfCustomers}";
 
-            //item = new ListViewItem("Number of customers");
-            //item.SubItems.Add(numberOfCustomers.ToString());
-            //ListviewRevenue.Items.Add(item);
-
-            LabelSales.Text = $"Sales: \n{numberOfDrinksSold}";
-            LabelTurnover.Text = $"Turnover: \n{totalTurnover:C}";
-            LabelNumber.Text = $"Number of customers: \n{numberOfCustomers}";
         }
 
         private void revenueReportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -495,18 +576,93 @@ namespace SomerenUI
             ShowRevenuePanel();
 
         }
- Variant-A-Manage-students(Ihor)
-        private List<ActivitySupervisor> GetActivitiesSupervisor()
-        {
-            ActivityService activityService = new ActivityService();
-            List<ActivitySupervisor> activitySupervisors = activityService.GetAllActivitySupervisors();
-            return activitySupervisors;
 
         private void dashboardToolStripMenuItem0_Click(object sender, EventArgs e)
         {
             ShowDashboardPanel();
+        }
+
+        private void SupervisorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowActivityPanel();
+        }
+
+        private void UpdateActivitySupervisors()
+        {
+
+            listViewTeachers.Items.Clear();
+            ListViewActivitySupervisors.Items.Clear();
+            listViewActivities.Items.Clear();
+
+            foreach (Activity activity in GetActivities())
+            {
+                ListViewItem activityItem = new ListViewItem(activity.ActivitiyName);
+                activityItem.SubItems.Add(activity.StartTime.ToString());
+                activityItem.SubItems.Add(activity.FinishTime.ToString());
+                activityItem.Tag = activity;
+                listViewActivities.Items.Add(activityItem);
+
+            }
+
+            foreach (Teacher teacher in GetLecturers())
+            {
+                ListViewItem teacherItem = new ListViewItem(teacher.FirstName + " " + teacher.SecondName);
+                teacherItem.Tag = teacher;
+                listViewActivityTeachers.Items.Add(teacherItem);
+            }
+
+            foreach (ActivitySupervisor activitySupervisor in GetActivitiesSupervisor())
+            {
+                ListViewItem activitySupervisorItem = new ListViewItem(activitySupervisor.Activity.ActivitiyName);
+                activitySupervisorItem.SubItems.Add(activitySupervisor.Teacher.FirstName + " " + activitySupervisor.Teacher.SecondName);
+                activitySupervisorItem.Tag = activitySupervisor;
+                ListViewActivitySupervisors.Items.Add(activitySupervisorItem);
+            }
+
 
         }
 
+        private void btnAddSupervisor_Click(object sender, EventArgs e)
+        {
+
+            ActivitySupervisor activitySupervisor = new ActivitySupervisor(this.activity.ActivityId, this.teacher.LecturerID);
+
+            ActivityService activityService = new ActivityService();
+            activityService.AddActivitySupervisor(activitySupervisor);
+            UpdateActivitySupervisors();
+
+        }
+
+        private void ListViewActivitySupervisors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            this.activitySupervisor = (ActivitySupervisor)ListViewActivitySupervisors.SelectedItems[0].Tag;
+        }
+
+        private void listViewActivityTeachers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            this.teacher = (Teacher)listViewActivityTeachers.SelectedItems[0].Tag;
+        }
+
+        private void listViewActivities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.activity = (Activity)listViewActivities.SelectedItems[0].Tag;
+        }
+
+        private void btnRemoveSupervisor_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this supervisor?", "Remove Supervisor", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ActivityService activityService = new ActivityService();
+                activityService.RemoveActivitySupervisor(this.activitySupervisor);
+                UpdateActivitySupervisors();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
     }
 }

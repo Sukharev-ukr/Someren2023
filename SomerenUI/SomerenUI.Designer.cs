@@ -30,9 +30,9 @@
         {
             System.Windows.Forms.Panel pnlActivity;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SomerenUI));
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             ListViewActivitySupervisors = new System.Windows.Forms.ListView();
             SupervisorsColumn = new System.Windows.Forms.ColumnHeader();
             NotSupervisorsColumn = new System.Windows.Forms.ColumnHeader();
@@ -44,7 +44,7 @@
             exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             studentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             lecturersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            activitiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            SupervisorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             roomsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             drinksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             revenueReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,6 +107,7 @@
             StudentPhoneColumn = new System.Windows.Forms.ColumnHeader();
             StudentClassColumn = new System.Windows.Forms.ColumnHeader();
             studentsLabel = new System.Windows.Forms.Label();
+            ParticipantsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             pnlActivity = new System.Windows.Forms.Panel();
             pnlActivity.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureActivity).BeginInit();
@@ -130,19 +131,17 @@
             pnlActivity.Controls.Add(ListViewActivitySupervisors);
             pnlActivity.Controls.Add(ActivitySupervisorsText);
             pnlActivity.Controls.Add(PictureActivity);
-            pnlActivity.Location = new System.Drawing.Point(17, 45);
-            pnlActivity.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pnlActivity.Location = new System.Drawing.Point(13, 24);
             pnlActivity.Name = "pnlActivity";
-            pnlActivity.Size = new System.Drawing.Size(1231, 750);
+            pnlActivity.Size = new System.Drawing.Size(862, 450);
             pnlActivity.TabIndex = 4;
             // 
             // ListViewActivitySupervisors
             // 
             ListViewActivitySupervisors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { SupervisorsColumn, NotSupervisorsColumn });
-            ListViewActivitySupervisors.Location = new System.Drawing.Point(40, 162);
-            ListViewActivitySupervisors.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ListViewActivitySupervisors.Location = new System.Drawing.Point(28, 97);
             ListViewActivitySupervisors.Name = "ListViewActivitySupervisors";
-            ListViewActivitySupervisors.Size = new System.Drawing.Size(715, 542);
+            ListViewActivitySupervisors.Size = new System.Drawing.Size(502, 327);
             ListViewActivitySupervisors.TabIndex = 8;
             ListViewActivitySupervisors.UseCompatibleStateImageBehavior = false;
             ListViewActivitySupervisors.View = System.Windows.Forms.View.Details;
@@ -161,31 +160,30 @@
             // 
             ActivitySupervisorsText.AutoSize = true;
             ActivitySupervisorsText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            ActivitySupervisorsText.Location = new System.Drawing.Point(10, 3);
-            ActivitySupervisorsText.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            ActivitySupervisorsText.Location = new System.Drawing.Point(7, 2);
+            ActivitySupervisorsText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             ActivitySupervisorsText.Name = "ActivitySupervisorsText";
-            ActivitySupervisorsText.Size = new System.Drawing.Size(328, 48);
+            ActivitySupervisorsText.Size = new System.Drawing.Size(221, 32);
             ActivitySupervisorsText.TabIndex = 7;
             ActivitySupervisorsText.Text = "Activity Supervisors";
             // 
             // PictureActivity
             // 
             PictureActivity.Image = (System.Drawing.Image)resources.GetObject("PictureActivity.Image");
-            PictureActivity.Location = new System.Drawing.Point(1088, 0);
-            PictureActivity.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            PictureActivity.Location = new System.Drawing.Point(762, 0);
+            PictureActivity.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             PictureActivity.Name = "PictureActivity";
-            PictureActivity.Size = new System.Drawing.Size(380, 570);
+            PictureActivity.Size = new System.Drawing.Size(266, 342);
             PictureActivity.TabIndex = 6;
             PictureActivity.TabStop = false;
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, activitiesToolStripMenuItem, roomsToolStripMenuItem, drinksToolStripMenuItem, revenueReportToolStripMenuItem });
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem, studentsToolStripMenuItem, lecturersToolStripMenuItem, SupervisorsToolStripMenuItem, roomsToolStripMenuItem, drinksToolStripMenuItem, revenueReportToolStripMenuItem, ParticipantsToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            menuStrip1.Size = new System.Drawing.Size(1924, 35);
+            menuStrip1.Size = new System.Drawing.Size(1347, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -193,80 +191,78 @@
             // 
             dashboardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { dashboardToolStripMenuItem0, exitToolStripMenuItem });
             dashboardToolStripMenuItem.Name = "dashboardToolStripMenuItem";
-            dashboardToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
+            dashboardToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             dashboardToolStripMenuItem.Text = "Application";
             // 
             // dashboardToolStripMenuItem0
             // 
             dashboardToolStripMenuItem0.Name = "dashboardToolStripMenuItem0";
-            dashboardToolStripMenuItem0.Size = new System.Drawing.Size(202, 34);
+            dashboardToolStripMenuItem0.Size = new System.Drawing.Size(131, 22);
             dashboardToolStripMenuItem0.Text = "Dashboard";
             dashboardToolStripMenuItem0.Click += dashboardToolStripMenuItem0_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(202, 34);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // studentsToolStripMenuItem
             // 
             studentsToolStripMenuItem.Name = "studentsToolStripMenuItem";
-            studentsToolStripMenuItem.Size = new System.Drawing.Size(97, 29);
+            studentsToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             studentsToolStripMenuItem.Text = "Students";
             studentsToolStripMenuItem.Click += studentsToolStripMenuItem_Click;
             // 
             // lecturersToolStripMenuItem
             // 
             lecturersToolStripMenuItem.Name = "lecturersToolStripMenuItem";
-            lecturersToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
+            lecturersToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             lecturersToolStripMenuItem.Text = "Lecturers";
             lecturersToolStripMenuItem.Click += lecturersToolStripMenuItem_Click;
             // 
-            // activitiesToolStripMenuItem
+            // SupervisorsToolStripMenuItem
             // 
-            activitiesToolStripMenuItem.Name = "activitiesToolStripMenuItem";
-            activitiesToolStripMenuItem.Size = new System.Drawing.Size(98, 29);
-            activitiesToolStripMenuItem.Text = "Activities";
+            SupervisorsToolStripMenuItem.Name = "SupervisorsToolStripMenuItem";
+            SupervisorsToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            SupervisorsToolStripMenuItem.Text = "Supervisors";
             // 
             // roomsToolStripMenuItem
             // 
             roomsToolStripMenuItem.Name = "roomsToolStripMenuItem";
-            roomsToolStripMenuItem.Size = new System.Drawing.Size(84, 29);
+            roomsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             roomsToolStripMenuItem.Text = "Rooms";
             roomsToolStripMenuItem.Click += roomsToolStripMenuItem_Click;
             // 
             // drinksToolStripMenuItem
             // 
             drinksToolStripMenuItem.Name = "drinksToolStripMenuItem";
-            drinksToolStripMenuItem.Size = new System.Drawing.Size(78, 29);
+            drinksToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             drinksToolStripMenuItem.Text = "Drinks";
             drinksToolStripMenuItem.Click += drinksToolStripMenuItem_Click;
             // 
             // revenueReportToolStripMenuItem
             // 
             revenueReportToolStripMenuItem.Name = "revenueReportToolStripMenuItem";
-            revenueReportToolStripMenuItem.Size = new System.Drawing.Size(94, 29);
+            revenueReportToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
             revenueReportToolStripMenuItem.Text = "Revenue";
             revenueReportToolStripMenuItem.Click += revenueReportToolStripMenuItem_Click;
             // 
             // pnlDashboard
             // 
             pnlDashboard.Controls.Add(lblDashboard);
-            pnlDashboard.Location = new System.Drawing.Point(17, 45);
-            pnlDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pnlDashboard.Location = new System.Drawing.Point(12, 27);
             pnlDashboard.Name = "pnlDashboard";
-            pnlDashboard.Size = new System.Drawing.Size(1319, 850);
+            pnlDashboard.Size = new System.Drawing.Size(923, 510);
             pnlDashboard.TabIndex = 0;
             // 
             // lblDashboard
             // 
             lblDashboard.AutoSize = true;
-            lblDashboard.Location = new System.Drawing.Point(19, 22);
-            lblDashboard.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDashboard.Location = new System.Drawing.Point(13, 13);
             lblDashboard.Name = "lblDashboard";
-            lblDashboard.Size = new System.Drawing.Size(313, 25);
+            lblDashboard.Size = new System.Drawing.Size(208, 15);
             lblDashboard.TabIndex = 0;
             lblDashboard.Text = "Welcome to the Someren Application!";
             // 
@@ -276,30 +272,30 @@
             pnlRooms.Controls.Add(labelTitleRooms);
             pnlRooms.Controls.Add(pictureBox20);
             pnlRooms.Controls.Add(listViewRooms);
-            pnlRooms.Location = new System.Drawing.Point(18, 45);
-            pnlRooms.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pnlRooms.Location = new System.Drawing.Point(13, 27);
+            pnlRooms.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pnlRooms.Name = "pnlRooms";
-            pnlRooms.Size = new System.Drawing.Size(1219, 750);
+            pnlRooms.Size = new System.Drawing.Size(853, 450);
             pnlRooms.TabIndex = 4;
             // 
             // labelTitleRooms
             // 
             labelTitleRooms.AutoSize = true;
             labelTitleRooms.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            labelTitleRooms.Location = new System.Drawing.Point(39, 20);
-            labelTitleRooms.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            labelTitleRooms.Location = new System.Drawing.Point(27, 12);
+            labelTitleRooms.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             labelTitleRooms.Name = "labelTitleRooms";
-            labelTitleRooms.Size = new System.Drawing.Size(129, 48);
+            labelTitleRooms.Size = new System.Drawing.Size(86, 32);
             labelTitleRooms.TabIndex = 2;
             labelTitleRooms.Text = "Rooms";
             // 
             // pictureBox20
             // 
             pictureBox20.Image = (System.Drawing.Image)resources.GetObject("pictureBox20.Image");
-            pictureBox20.Location = new System.Drawing.Point(1087, 0);
-            pictureBox20.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pictureBox20.Location = new System.Drawing.Point(761, 0);
+            pictureBox20.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pictureBox20.Name = "pictureBox20";
-            pictureBox20.Size = new System.Drawing.Size(380, 570);
+            pictureBox20.Size = new System.Drawing.Size(266, 342);
             pictureBox20.TabIndex = 4;
             pictureBox20.TabStop = false;
             // 
@@ -307,13 +303,13 @@
             // 
             listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnRoomID, columnHeader20, columnHeader21, columnHeader22 });
             listViewRooms.FullRowSelect = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Phone_number";
-            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup1 });
-            listViewRooms.Location = new System.Drawing.Point(40, 70);
-            listViewRooms.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "Phone_number";
+            listViewRooms.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup4 });
+            listViewRooms.Location = new System.Drawing.Point(28, 42);
+            listViewRooms.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             listViewRooms.Name = "listViewRooms";
-            listViewRooms.Size = new System.Drawing.Size(1000, 701);
+            listViewRooms.Size = new System.Drawing.Size(701, 422);
             listViewRooms.TabIndex = 1;
             listViewRooms.UseCompatibleStateImageBehavior = false;
             listViewRooms.View = System.Windows.Forms.View.Details;
@@ -347,18 +343,18 @@
             pnlDrinks.Controls.Add(buttonRemove);
             pnlDrinks.Controls.Add(labelDrinksTitle);
             pnlDrinks.Controls.Add(listViewDrink);
-            pnlDrinks.Location = new System.Drawing.Point(17, 45);
-            pnlDrinks.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pnlDrinks.Location = new System.Drawing.Point(12, 27);
+            pnlDrinks.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pnlDrinks.Name = "pnlDrinks";
-            pnlDrinks.Size = new System.Drawing.Size(1231, 750);
+            pnlDrinks.Size = new System.Drawing.Size(862, 450);
             pnlDrinks.TabIndex = 2;
             // 
             // buttonOrderDrink
             // 
-            buttonOrderDrink.Location = new System.Drawing.Point(1054, 145);
-            buttonOrderDrink.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            buttonOrderDrink.Location = new System.Drawing.Point(738, 87);
+            buttonOrderDrink.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonOrderDrink.Name = "buttonOrderDrink";
-            buttonOrderDrink.Size = new System.Drawing.Size(97, 38);
+            buttonOrderDrink.Size = new System.Drawing.Size(68, 23);
             buttonOrderDrink.TabIndex = 7;
             buttonOrderDrink.Text = "Order";
             buttonOrderDrink.UseVisualStyleBackColor = true;
@@ -367,19 +363,19 @@
             // pictureBox1
             // 
             pictureBox1.Image = (System.Drawing.Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new System.Drawing.Point(1082, 0);
-            pictureBox1.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pictureBox1.Location = new System.Drawing.Point(757, 0);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(137, 124);
+            pictureBox1.Size = new System.Drawing.Size(96, 74);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
             // buttonEditDrinks
             // 
-            buttonEditDrinks.Location = new System.Drawing.Point(1055, 201);
-            buttonEditDrinks.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            buttonEditDrinks.Location = new System.Drawing.Point(738, 121);
+            buttonEditDrinks.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonEditDrinks.Name = "buttonEditDrinks";
-            buttonEditDrinks.Size = new System.Drawing.Size(97, 35);
+            buttonEditDrinks.Size = new System.Drawing.Size(68, 21);
             buttonEditDrinks.TabIndex = 6;
             buttonEditDrinks.Text = "Edit";
             buttonEditDrinks.UseVisualStyleBackColor = true;
@@ -387,10 +383,10 @@
             // 
             // buttonRemove
             // 
-            buttonRemove.Location = new System.Drawing.Point(1054, 252);
-            buttonRemove.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            buttonRemove.Location = new System.Drawing.Point(738, 151);
+            buttonRemove.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             buttonRemove.Name = "buttonRemove";
-            buttonRemove.Size = new System.Drawing.Size(97, 35);
+            buttonRemove.Size = new System.Drawing.Size(68, 21);
             buttonRemove.TabIndex = 6;
             buttonRemove.Text = "Remove";
             buttonRemove.UseVisualStyleBackColor = true;
@@ -400,10 +396,10 @@
             // 
             labelDrinksTitle.AutoSize = true;
             labelDrinksTitle.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            labelDrinksTitle.Location = new System.Drawing.Point(39, 20);
-            labelDrinksTitle.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            labelDrinksTitle.Location = new System.Drawing.Point(27, 12);
+            labelDrinksTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             labelDrinksTitle.Name = "labelDrinksTitle";
-            labelDrinksTitle.Size = new System.Drawing.Size(120, 48);
+            labelDrinksTitle.Size = new System.Drawing.Size(81, 32);
             labelDrinksTitle.TabIndex = 2;
             labelDrinksTitle.Text = "Drinks";
             // 
@@ -411,13 +407,13 @@
             // 
             listViewDrink.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnDrinkID, columnDrinkName, columnDrinkVAT, columnDrinkType, columnDrinkPrice, columnDrinkStock });
             listViewDrink.FullRowSelect = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Phone_number";
-            listViewDrink.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup2 });
-            listViewDrink.Location = new System.Drawing.Point(40, 70);
-            listViewDrink.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            listViewGroup5.Header = "ListViewGroup";
+            listViewGroup5.Name = "Phone_number";
+            listViewDrink.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup5 });
+            listViewDrink.Location = new System.Drawing.Point(28, 42);
+            listViewDrink.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             listViewDrink.Name = "listViewDrink";
-            listViewDrink.Size = new System.Drawing.Size(1000, 701);
+            listViewDrink.Size = new System.Drawing.Size(701, 422);
             listViewDrink.TabIndex = 1;
             listViewDrink.UseCompatibleStateImageBehavior = false;
             listViewDrink.View = System.Windows.Forms.View.Details;
@@ -459,40 +455,40 @@
             pnlTeachers.Controls.Add(PictureForTeachers);
             pnlTeachers.Controls.Add(pictureBoxSomerenDrinks);
             pnlTeachers.Controls.Add(listViewTeachers);
-            pnlTeachers.Location = new System.Drawing.Point(18, 45);
-            pnlTeachers.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pnlTeachers.Location = new System.Drawing.Point(13, 27);
+            pnlTeachers.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pnlTeachers.Name = "pnlTeachers";
-            pnlTeachers.Size = new System.Drawing.Size(1230, 750);
+            pnlTeachers.Size = new System.Drawing.Size(861, 450);
             pnlTeachers.TabIndex = 20;
             // 
             // Teacher_text
             // 
             Teacher_text.AutoSize = true;
             Teacher_text.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Teacher_text.Location = new System.Drawing.Point(46, 17);
-            Teacher_text.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            Teacher_text.Location = new System.Drawing.Point(32, 10);
+            Teacher_text.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Teacher_text.Name = "Teacher_text";
-            Teacher_text.Size = new System.Drawing.Size(156, 48);
+            Teacher_text.Size = new System.Drawing.Size(106, 32);
             Teacher_text.TabIndex = 2;
             Teacher_text.Text = "Teachers";
             // 
             // PictureForTeachers
             // 
             PictureForTeachers.Image = (System.Drawing.Image)resources.GetObject("PictureForTeachers.Image");
-            PictureForTeachers.Location = new System.Drawing.Point(1100, 0);
-            PictureForTeachers.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            PictureForTeachers.Location = new System.Drawing.Point(770, 0);
+            PictureForTeachers.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             PictureForTeachers.Name = "PictureForTeachers";
-            PictureForTeachers.Size = new System.Drawing.Size(380, 570);
+            PictureForTeachers.Size = new System.Drawing.Size(266, 342);
             PictureForTeachers.TabIndex = 4;
             PictureForTeachers.TabStop = false;
             // 
             // pictureBoxSomerenDrinks
             // 
             pictureBoxSomerenDrinks.Image = (System.Drawing.Image)resources.GetObject("pictureBoxSomerenDrinks.Image");
-            pictureBoxSomerenDrinks.Location = new System.Drawing.Point(1099, 0);
-            pictureBoxSomerenDrinks.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            pictureBoxSomerenDrinks.Location = new System.Drawing.Point(769, 0);
+            pictureBoxSomerenDrinks.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             pictureBoxSomerenDrinks.Name = "pictureBoxSomerenDrinks";
-            pictureBoxSomerenDrinks.Size = new System.Drawing.Size(380, 570);
+            pictureBoxSomerenDrinks.Size = new System.Drawing.Size(266, 342);
             pictureBoxSomerenDrinks.TabIndex = 4;
             pictureBoxSomerenDrinks.TabStop = false;
             // 
@@ -500,13 +496,13 @@
             // 
             listViewTeachers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { First_Name, Last_Name, Phone_Number, Age });
             listViewTeachers.FullRowSelect = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "Phone_number";
-            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup3 });
-            listViewTeachers.Location = new System.Drawing.Point(40, 70);
-            listViewTeachers.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            listViewGroup6.Header = "ListViewGroup";
+            listViewGroup6.Name = "Phone_number";
+            listViewTeachers.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] { listViewGroup6 });
+            listViewTeachers.Location = new System.Drawing.Point(28, 42);
+            listViewTeachers.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             listViewTeachers.Name = "listViewTeachers";
-            listViewTeachers.Size = new System.Drawing.Size(1000, 701);
+            listViewTeachers.Size = new System.Drawing.Size(701, 422);
             listViewTeachers.TabIndex = 1;
             listViewTeachers.UseCompatibleStateImageBehavior = false;
             listViewTeachers.View = System.Windows.Forms.View.Details;
@@ -544,27 +540,24 @@
             pnlRevenue.Controls.Add(flowLayoutPanel2);
             pnlRevenue.Controls.Add(LabelNumber);
             pnlRevenue.Controls.Add(LabelTurnover);
-            pnlRevenue.Location = new System.Drawing.Point(18, 45);
-            pnlRevenue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            pnlRevenue.Location = new System.Drawing.Point(13, 27);
             pnlRevenue.Name = "pnlRevenue";
-            pnlRevenue.Size = new System.Drawing.Size(1230, 750);
+            pnlRevenue.Size = new System.Drawing.Size(861, 450);
             pnlRevenue.TabIndex = 5;
             // 
             // LabelSales
             // 
             LabelSales.AutoSize = true;
-            LabelSales.Location = new System.Drawing.Point(39, 315);
-            LabelSales.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabelSales.Location = new System.Drawing.Point(27, 189);
             LabelSales.Name = "LabelSales";
-            LabelSales.Size = new System.Drawing.Size(0, 25);
+            LabelSales.Size = new System.Drawing.Size(0, 15);
             LabelSales.TabIndex = 12;
             // 
             // GenerateRevenue
             // 
-            GenerateRevenue.Location = new System.Drawing.Point(886, 123);
-            GenerateRevenue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            GenerateRevenue.Location = new System.Drawing.Point(620, 74);
             GenerateRevenue.Name = "GenerateRevenue";
-            GenerateRevenue.Size = new System.Drawing.Size(137, 52);
+            GenerateRevenue.Size = new System.Drawing.Size(96, 31);
             GenerateRevenue.TabIndex = 11;
             GenerateRevenue.Text = "Generate";
             GenerateRevenue.UseVisualStyleBackColor = true;
@@ -574,10 +567,10 @@
             // 
             EndText.AutoSize = true;
             EndText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            EndText.Location = new System.Drawing.Point(551, 68);
-            EndText.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            EndText.Location = new System.Drawing.Point(386, 41);
+            EndText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             EndText.Name = "EndText";
-            EndText.Size = new System.Drawing.Size(159, 48);
+            EndText.Size = new System.Drawing.Size(108, 32);
             EndText.TabIndex = 10;
             EndText.Text = "End date";
             // 
@@ -585,10 +578,10 @@
             // 
             StartText.AutoSize = true;
             StartText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            StartText.Location = new System.Drawing.Point(100, 68);
-            StartText.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            StartText.Location = new System.Drawing.Point(70, 41);
+            StartText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             StartText.Name = "StartText";
-            StartText.Size = new System.Drawing.Size(173, 48);
+            StartText.Size = new System.Drawing.Size(116, 32);
             StartText.TabIndex = 9;
             StartText.Text = "Start date";
             // 
@@ -596,36 +589,33 @@
             // 
             RevenueText.AutoSize = true;
             RevenueText.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            RevenueText.Location = new System.Drawing.Point(4, 0);
-            RevenueText.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
+            RevenueText.Location = new System.Drawing.Point(3, 0);
+            RevenueText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             RevenueText.Name = "RevenueText";
-            RevenueText.Size = new System.Drawing.Size(272, 48);
+            RevenueText.Size = new System.Drawing.Size(183, 32);
             RevenueText.TabIndex = 3;
             RevenueText.Text = "Revenue Report";
             // 
             // EndPick
             // 
-            EndPick.Location = new System.Drawing.Point(510, 127);
-            EndPick.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            EndPick.Location = new System.Drawing.Point(357, 76);
             EndPick.Name = "EndPick";
-            EndPick.Size = new System.Drawing.Size(284, 31);
+            EndPick.Size = new System.Drawing.Size(200, 23);
             EndPick.TabIndex = 8;
             // 
             // StartPick
             // 
-            StartPick.Location = new System.Drawing.Point(40, 127);
-            StartPick.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            StartPick.Location = new System.Drawing.Point(28, 76);
             StartPick.Name = "StartPick";
-            StartPick.Size = new System.Drawing.Size(284, 31);
+            StartPick.Size = new System.Drawing.Size(200, 23);
             StartPick.TabIndex = 7;
             // 
             // ListviewRevenue
             // 
             ListviewRevenue.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { TotalSales, Turnover, NumberOfCustomers });
-            ListviewRevenue.Location = new System.Drawing.Point(9, 195);
-            ListviewRevenue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            ListviewRevenue.Location = new System.Drawing.Point(6, 117);
             ListviewRevenue.Name = "ListviewRevenue";
-            ListviewRevenue.Size = new System.Drawing.Size(1055, 654);
+            ListviewRevenue.Size = new System.Drawing.Size(740, 394);
             ListviewRevenue.TabIndex = 6;
             ListviewRevenue.UseCompatibleStateImageBehavior = false;
             ListviewRevenue.View = System.Windows.Forms.View.Details;
@@ -648,38 +638,35 @@
             // PictureRevenue
             // 
             PictureRevenue.Image = (System.Drawing.Image)resources.GetObject("PictureRevenue.Image");
-            PictureRevenue.Location = new System.Drawing.Point(1060, 0);
-            PictureRevenue.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            PictureRevenue.Location = new System.Drawing.Point(742, 0);
+            PictureRevenue.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             PictureRevenue.Name = "PictureRevenue";
-            PictureRevenue.Size = new System.Drawing.Size(380, 570);
+            PictureRevenue.Size = new System.Drawing.Size(266, 342);
             PictureRevenue.TabIndex = 5;
             PictureRevenue.TabStop = false;
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Location = new System.Drawing.Point(987, 175);
-            flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            flowLayoutPanel2.Location = new System.Drawing.Point(691, 105);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new System.Drawing.Size(286, 167);
+            flowLayoutPanel2.Size = new System.Drawing.Size(200, 100);
             flowLayoutPanel2.TabIndex = 0;
             // 
             // LabelNumber
             // 
             LabelNumber.AutoSize = true;
-            LabelNumber.Location = new System.Drawing.Point(703, 352);
-            LabelNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabelNumber.Location = new System.Drawing.Point(492, 211);
             LabelNumber.Name = "LabelNumber";
-            LabelNumber.Size = new System.Drawing.Size(59, 25);
+            LabelNumber.Size = new System.Drawing.Size(38, 15);
             LabelNumber.TabIndex = 3;
             LabelNumber.Text = "label1";
             // 
             // LabelTurnover
             // 
             LabelTurnover.AutoSize = true;
-            LabelTurnover.Location = new System.Drawing.Point(311, 357);
-            LabelTurnover.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LabelTurnover.Location = new System.Drawing.Point(218, 214);
             LabelTurnover.Name = "LabelTurnover";
-            LabelTurnover.Size = new System.Drawing.Size(59, 25);
+            LabelTurnover.Size = new System.Drawing.Size(38, 15);
             LabelTurnover.TabIndex = 13;
             LabelTurnover.Text = "label1";
             // 
@@ -764,15 +751,21 @@
             studentsLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             studentsLabel.Location = new System.Drawing.Point(13, 7);
             studentsLabel.Name = "studentsLabel";
-            studentsLabel.Size = new System.Drawing.Size(157, 48);
+            studentsLabel.Size = new System.Drawing.Size(107, 32);
             studentsLabel.TabIndex = 0;
             studentsLabel.Text = "Students";
             // 
+            // ParticipantsToolStripMenuItem
+            // 
+            ParticipantsToolStripMenuItem.Name = "ParticipantsToolStripMenuItem";
+            ParticipantsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            ParticipantsToolStripMenuItem.Text = "Participants";
+            // 
             // SomerenUI
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1924, 1050);
+            ClientSize = new System.Drawing.Size(1347, 630);
             Controls.Add(pnlActivity);
             Controls.Add(pnlDrinks);
             Controls.Add(pnlRevenue);
@@ -781,7 +774,6 @@
             Controls.Add(menuStrip1);
             Controls.Add(pnlDashboard);
             MainMenuStrip = menuStrip1;
-            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             Name = "SomerenUI";
             Text = "SomerenApp";
             pnlActivity.ResumeLayout(false);
@@ -819,7 +811,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem studentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lecturersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem activitiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SupervisorsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem roomsToolStripMenuItem;
         private System.Windows.Forms.Panel pnlDashboard;
         private System.Windows.Forms.Label lblDashboard;
@@ -893,5 +885,6 @@
         private System.Windows.Forms.Label ActivitySupervisorsText;
         private System.Windows.Forms.ColumnHeader SupervisorsColumn;
         private System.Windows.Forms.ColumnHeader NotSupervisorsColumn;
+        private System.Windows.Forms.ToolStripMenuItem ParticipantsToolStripMenuItem;
     }
 }

@@ -11,11 +11,13 @@ namespace SomerenService
     public class ActivityService
     {
         private TeacherDao teacherDao;
+        private StudentDao studentDao;
         private ActivityDao activityDao;
 
         public ActivityService()
         {
             teacherDao = new TeacherDao();
+            studentDao = new StudentDao();
             activityDao = new ActivityDao();
         }
 
@@ -52,14 +54,39 @@ namespace SomerenService
             return activitySupervisors;
         }
 
+        public List<ActivityParticipant> GetAllActivityParticipants()
+        {
+            StudentService studentService = new StudentService();
+            List<ActivityParticipant> activityParticipants = new List<ActivityParticipant>();
+
+            foreach (ActivityParticipant activityParticipant in activityDao.GetAllActivityParticipants())
+            {
+                activityParticipant.Activity = GetActivityById(activityParticipant.ActivityID);
+                activityParticipant.Student = studentService.GetStudentById(activityParticipant.StudentID);
+                activityParticipants.Add(activityParticipant);
+            }
+
+            return activityParticipants;
+        }
+
         public void AddActivitySupervisor(ActivitySupervisor activitySupervisor)
         {
             activityDao.AddActivitySupervisor(activitySupervisor);
         }
 
+        public void AddActivityParticipant(ActivityParticipant activityParticipant)
+        {
+            activityDao.AddActivityParticipant(activityParticipant);
+        }
+
         public void RemoveActivitySupervisor(ActivitySupervisor activitySupervisor)
         {
             activityDao.RemoveActivitySupervisor(activitySupervisor);
+        }
+
+        public void RemoveActivityParticipant(ActivityParticipant activityParticipant)
+        {
+            activityDao.RemoveActivityParticipant(activityParticipant);
         }
     }
 }

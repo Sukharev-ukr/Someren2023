@@ -21,8 +21,10 @@ namespace SomerenUI
         }
 
         private Teacher teacher;
+        private Student student;
         private Activity activity;
         private ActivitySupervisor activitySupervisor;
+        private ActivityParticipant activityParticipant;
 
 
         private void ShowDashboardPanel()
@@ -189,7 +191,7 @@ namespace SomerenUI
             pnlActivity.Hide();
 
 
-            // show supervisors
+            // show activity
             pnlActivity.Show();
             ListViewActivitySupervisors.Show();
             pnlActivity.BringToFront();
@@ -197,11 +199,11 @@ namespace SomerenUI
 
             try
             {
-                // get and display all students
+                // get and display all supervisors
 
-                List<ActivitySupervisor> activitySupervisors = new List<ActivitySupervisor>();
+                List<ActivitySupervisor> activitySupervisor = new List<ActivitySupervisor>();
 
-                DisplaySupervisors(activitySupervisors);
+                DisplaySupervisors(activitySupervisor);
 
 
 
@@ -209,6 +211,42 @@ namespace SomerenUI
             catch (Exception e)
             {
                 MessageBox.Show("Something went wrong while loading supervisors: " + e.Message);
+            }
+        }
+
+        private void ShowParticipantPanel()
+        {
+            // hide all other panels
+            HideAllPanels(this);
+            pnlDashboard.Hide();
+            pnlDrinks.Hide();
+            pnlStudents.Hide();
+            pnlRooms.Hide();
+            pnlRevenue.Hide();
+            pnlTeachers.Hide();
+            pnlActivity.Hide();
+
+
+            // show supervisors
+            pnlParticipants.Show();
+            listViewActivityParticipant.Show();
+            pnlParticipants.BringToFront();
+
+
+            try
+            {
+                // get and display all participants
+
+                List<ActivityParticipant> activityParticipants = new List<ActivityParticipant>();
+
+                DisplayParticipants(activityParticipants);
+
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong while loading participants: " + e.Message);
             }
         }
 
@@ -224,6 +262,21 @@ namespace SomerenUI
 
 
             UpdateActivitySupervisors();
+        }
+
+        private void pnlParticipant_Paint(object sender, PaintEventArgs e)
+        {
+            // hide all other panels
+
+            pnlDashboard.Hide();
+            pnlTeachers.Hide();
+            pnlStudents.Hide();
+
+            // show Activity participant
+            pnlParticipants.Show();
+
+
+            UpdateActivityParticipant();
         }
 
         private void ShowRevenuePanel()
@@ -297,12 +350,21 @@ namespace SomerenUI
             return activitySupervisors;
         }
 
+        private List<ActivityParticipant> GetActivitiesParticipant()
+        {
+            ActivityService activityService = new ActivityService();
+            List<ActivityParticipant> activityParticipant = activityService.GetAllActivityParticipants();
+            return activityParticipant;
+        }
+
         private List<Activity> GetActivities()
         {
             ActivityService activityService = new ActivityService();
             List<Activity> activities = activityService.GetAllActivities();
             return activities;
         }
+
+
 
         private void DisplayStudents(List<Student> students)
         {
@@ -354,6 +416,22 @@ namespace SomerenUI
                 li.SubItems.Add(supervisor.Teacher.SecondName);
                 li.Tag = supervisor;
                 ListViewActivitySupervisors.Items.Add(li);
+            }
+        }
+
+        private void DisplayParticipants(List<ActivityParticipant> participants)
+        {
+            // clear the listview before filling it
+
+            listViewStudentsGeneral.Items.Clear();
+            listViewActivityParticipant.Items.Clear();
+
+            foreach (ActivityParticipant participant in participants)
+            {
+                ListViewItem li = new ListViewItem(participant.Student.StudentFirstName);
+                li.SubItems.Add(participant.Student.StudentLastName);
+                li.Tag = participant;
+                listViewActivityParticipant.Items.Add(li);
             }
         }
 
@@ -622,6 +700,41 @@ namespace SomerenUI
 
         }
 
+        private void UpdateActivityParticipant()
+        {
+
+            listViewStudentsGeneral.Items.Clear();
+            listViewActivitiesParticipant.Items.Clear();
+            listViewActivityParticipant.Items.Clear();
+
+            foreach (Activity activity in GetActivities())
+            {
+                ListViewItem activityItem = new ListViewItem(activity.ActivitiyName);
+                activityItem.SubItems.Add(activity.StartTime.ToString());
+                activityItem.SubItems.Add(activity.FinishTime.ToString());
+                activityItem.Tag = activity;
+                listViewActivitiesParticipant.Items.Add(activityItem);
+
+            }
+
+            foreach (Student student in GetStudents())
+            {
+                ListViewItem studentItem = new ListViewItem(student.StudentFirstName + " " + student.StudentLastName);
+                studentItem.Tag = student;
+                listViewStudentsGeneral.Items.Add(studentItem);
+            }
+
+            foreach (ActivityParticipant activityParticipant in GetActivitiesParticipant())
+            {
+                ListViewItem activityParticipantItem = new ListViewItem(activityParticipant.Activity.ActivitiyName);
+                activityParticipantItem.SubItems.Add(activityParticipant.Student.StudentFirstName + " " + activityParticipant.Student.StudentLastName);
+                activityParticipantItem.Tag = activityParticipant;
+                listViewActivityParticipant.Items.Add(activityParticipantItem);
+            }
+
+
+        }
+
         private void btnAddSupervisor_Click(object sender, EventArgs e)
         {
 
@@ -637,6 +750,12 @@ namespace SomerenUI
         {
 
             this.activitySupervisor = (ActivitySupervisor)ListViewActivitySupervisors.SelectedItems[0].Tag;
+        }
+
+        private void listViewActivityParticipant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            this.activityParticipant = (ActivityParticipant)listViewActivityParticipant.SelectedItems[0].Tag;
         }
 
         private void listViewActivityTeachers_SelectedIndexChanged(object sender, EventArgs e)
@@ -658,6 +777,35 @@ namespace SomerenUI
                 ActivityService activityService = new ActivityService();
                 activityService.RemoveActivitySupervisor(this.activitySupervisor);
                 UpdateActivitySupervisors();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void btnAddParticipant_Click(object sender, EventArgs e)
+        {
+            ActivityParticipant activityParticipant = new ActivityParticipant(this.activity.ActivityId, this.student.StudentNumber);
+
+            ActivityService activityService = new ActivityService();
+            activityService.AddActivityParticipant(activityParticipant);
+            UpdateActivityParticipant();
+        }
+
+        private void ParticipantsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowParticipantPanel();
+        }
+
+        private void btnRemoveParticipant_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this participant?", "Remove Participant", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                ActivityService activityService = new ActivityService();
+                activityService.RemoveActivityParticipant(this.activityParticipant);
+                UpdateActivityParticipant();
             }
             else if (dialogResult == DialogResult.No)
             {

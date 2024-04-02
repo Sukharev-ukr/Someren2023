@@ -18,5 +18,18 @@ namespace SomerenService
             List<Student> students = studentdb.GetAllStudents();
             return students;
         }
+
+        public Student GetStudentById(int id)
+        {
+            foreach (Student student in GetStudents())
+            {
+                if (student.StudentNumber == id)
+                {
+                    return student;
+                }
+            }
+
+            return null;
+        }
     }
 }

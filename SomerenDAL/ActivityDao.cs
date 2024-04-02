@@ -43,6 +43,13 @@ namespace SomerenDAL
             return ReadActivitySupervisorTable(ExecuteSelectQuery(query, sqlParameters));
         }
 
+        public List<ActivityParticipant> GetAllActivityParticipants()
+        {
+            string query = "SELECT * FROM PARTICIPATES";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadActivityParticipantTable(ExecuteSelectQuery(query, sqlParameters));
+        }
+
 
 
         private List<ActivitySupervisor> ReadActivitySupervisorTable(DataTable dataTable)
@@ -57,6 +64,18 @@ namespace SomerenDAL
             return activitiesSupervisors;
         }
 
+        private List<ActivityParticipant> ReadActivityParticipantTable(DataTable dataTable)
+        {
+            List<ActivityParticipant> activitiesParticipant = new List<ActivityParticipant>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                activitiesParticipant.Add(new ActivityParticipant((int)dr["ActivityID"], (int)dr["StudentID"]));
+
+            }
+            return activitiesParticipant;
+        }
+
         public void AddActivitySupervisor(ActivitySupervisor activitySupervisor)
         {
             string query = "INSERT INTO ActivitySupervisor (ActivityId, LecturerId) VALUES (@addActivityId, @addLecturerID)";
@@ -66,12 +85,30 @@ namespace SomerenDAL
             ExecuteEditQuery(query, sqlParameters);
         }
 
+        public void AddActivityParticipant(ActivityParticipant activityParticipant)
+        {
+            string query = "INSERT INTO ActivityParticipant (ActivityId, StudentID) VALUES (@addActivityId, @addStudentID)";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@addActivityId", activityParticipant.ActivityID);
+            sqlParameters[1] = new SqlParameter("@addStudentID", activityParticipant.StudentID);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
         public void RemoveActivitySupervisor(ActivitySupervisor activitySupervisor)
         {
             string query = "DELETE FROM ActivitySupervisor WHERE ActivityID = @ActivityId AND LecturerID = @lecturerID";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@ActivityId", activitySupervisor.ActivityID);
             sqlParameters[1] = new SqlParameter("@LecturerID", activitySupervisor.LecturerID);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        public void RemoveActivityParticipant(ActivityParticipant activityParticipant)
+        {
+            string query = "DELETE FROM ActivityParticipant WHERE ActivityID = @ActivityId AND StudentID = @studentID";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@ActivityId", activityParticipant.ActivityID);
+            sqlParameters[1] = new SqlParameter("@StudentID", activityParticipant.StudentID);
             ExecuteEditQuery(query, sqlParameters);
         }
     }

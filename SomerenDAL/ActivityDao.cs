@@ -87,7 +87,7 @@ namespace SomerenDAL
 
         public void AddActivityParticipant(ActivityParticipant activityParticipant)
         {
-            string query = "INSERT INTO ActivityParticipant (ActivityId, StudentID) VALUES (@addActivityId, @addStudentID)";
+            string query = "INSERT INTO PARTICIPATES (ActivityId, StudentID) VALUES (@addActivityId, @addStudentID)";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@addActivityId", activityParticipant.ActivityID);
             sqlParameters[1] = new SqlParameter("@addStudentID", activityParticipant.StudentID);
@@ -105,7 +105,7 @@ namespace SomerenDAL
 
         public void RemoveActivityParticipant(ActivityParticipant activityParticipant)
         {
-            string query = "DELETE FROM ActivityParticipant WHERE ActivityID = @ActivityId AND StudentID = @studentID";
+            string query = "DELETE FROM PARTICIPATES WHERE ActivityID = @ActivityId AND StudentID = @studentID";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@ActivityId", activityParticipant.ActivityID);
             sqlParameters[1] = new SqlParameter("@StudentID", activityParticipant.StudentID);

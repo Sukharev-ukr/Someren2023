@@ -702,7 +702,6 @@ namespace SomerenUI
 
         private void UpdateActivityParticipant()
         {
-
             listViewStudentsGeneral.Items.Clear();
             listViewActivitiesParticipant.Items.Clear();
             listViewActivityParticipant.Items.Clear();
@@ -714,7 +713,6 @@ namespace SomerenUI
                 activityItem.SubItems.Add(activity.FinishTime.ToString());
                 activityItem.Tag = activity;
                 listViewActivitiesParticipant.Items.Add(activityItem);
-
             }
 
             foreach (Student student in GetStudents())
@@ -727,11 +725,10 @@ namespace SomerenUI
             foreach (ActivityParticipant activityParticipant in GetActivitiesParticipant())
             {
                 ListViewItem activityParticipantItem = new ListViewItem(activityParticipant.Activity.ActivitiyName);
-                activityParticipantItem.SubItems.Add(activityParticipant.Student.StudentFirstName + " " + activityParticipant.Student.StudentLastName);
-                activityParticipantItem.Tag = activityParticipant;
-                listViewActivityParticipant.Items.Add(activityParticipantItem);
+                            activityParticipantItem.SubItems.Add(activityParticipant.Student.StudentFirstName + " " + activityParticipant.Student.StudentLastName);
+                            activityParticipantItem.Tag = activityParticipant;
+                            listViewActivityParticipant.Items.Add(activityParticipantItem); 
             }
-
 
         }
 
@@ -786,12 +783,39 @@ namespace SomerenUI
 
         private void btnAddParticipant_Click(object sender, EventArgs e)
         {
-            ActivityParticipant activityParticipant = new ActivityParticipant(this.activity.ActivityId, this.student.StudentNumber);
+            if (activity != null && student != null)
+            {
+                ActivityParticipant activityParticipant = new ActivityParticipant(activity.ActivityId, student.StudentNumber);
 
-            ActivityService activityService = new ActivityService();
-            activityService.AddActivityParticipant(activityParticipant);
-            UpdateActivityParticipant();
+                ActivityService activityService = new ActivityService();
+                activityService.AddActivityParticipant(activityParticipant);
+                UpdateActivityParticipant();
+            }
+            else
+            {
+                MessageBox.Show("Activity or student information is missing.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Handle the case where activity or student is null
+                if (activity == null)
+                {
+                    // Provide default activity or behavior
+                  //  activity = new Activity(); // Example: Create a new activity object
+                }
+
+                if (student == null)
+                {
+                    // Provide default student or behavior
+                  //  student = new Student(); // Example: Create a new student object
+                }
+
+                // Proceed with the operation using default values or behavior
+                ActivityParticipant activityParticipant = new ActivityParticipant(activity.ActivityId, student.StudentNumber);
+
+                ActivityService activityService = new ActivityService();
+                activityService.AddActivityParticipant(activityParticipant);
+                UpdateActivityParticipant();
+            }
         }
+
 
         private void ParticipantsToolStripMenuItem_Click(object sender, EventArgs e)
         {

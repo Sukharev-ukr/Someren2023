@@ -70,7 +70,7 @@ namespace SomerenDAL
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                activitiesParticipant.Add(new ActivityParticipant((int)dr["ActivityID"], (int)dr["StudentID"]));
+                activitiesParticipant.Add(new ActivityParticipant((int)dr["StudentID"], (int)dr["ActivityID"]));
 
             }
             return activitiesParticipant;

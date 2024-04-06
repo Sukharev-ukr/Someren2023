@@ -31,5 +31,21 @@ namespace SomerenService
 
             return null;
         }
+
+        public void AddTeacher(Teacher teacher, int roomId)
+        {
+            teacherdb.AddTeacher(teacher, roomId);
+        }
+
+        //public void UpdateTeacher(Teacher teacher)
+        //{
+        //    teacherdb.UpdateTeacher(teacher);
+        //}
+
+        public void RemoveTeacher(int id)
+        {
+            teacherdb.RemoveTeacher(id);
+        }
+
     }
 }

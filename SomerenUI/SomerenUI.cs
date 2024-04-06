@@ -18,11 +18,13 @@ namespace SomerenUI
             this.drinksToolStripMenuItem.Click += new System.EventHandler(this.drinksToolStripMenuItem_Click);
             this.roomsToolStripMenuItem.Click += new System.EventHandler(this.roomsToolStripMenuItem_Click);
             this.Controls.Add(pnlStudents);
+            teacherService = new TeacherService();
         }
 
         private Teacher teacher;
         private Activity activity;
         private ActivitySupervisor activitySupervisor;
+        private TeacherService teacherService;
 
 
         private void ShowDashboardPanel()
@@ -664,5 +666,89 @@ namespace SomerenUI
                 return;
             }
         }
+
+        // Lecturers
+
+        private void AddLecturer()
+        {
+            string lecturerIdInput = Interaction.InputBox("Enter lecturer ID:", "Add Lecturer");
+            string firstNameInput = Interaction.InputBox("Enter first name:", "Add Lecturer");
+            string secondNameInput = Interaction.InputBox("Enter second name:", "Add Lecturer");
+            string phoneInput = Interaction.InputBox("Enter phone number:", "Add Lecturer");
+            string ageInput = Interaction.InputBox("Enter age:", "Add Lecturer");
+            string roomIdInput = Interaction.InputBox("Enter room ID:", "Add Lecturer");
+
+            if (int.TryParse(lecturerIdInput, out int lecturerIdInt) && int.TryParse(ageInput, out int ageInt) && int.TryParse(roomIdInput, out int roomIdInt))
+            {
+                Teacher newTeacher = new Teacher(lecturerIdInt, firstNameInput, secondNameInput, phoneInput, ageInt);
+                teacherService.AddTeacher(newTeacher, roomIdInt);
+                UpdateActivitySupervisors();
+            }
+            else
+            {
+                MessageBox.Show("Invalid lecturer ID, age, or room ID.");
+            }
+        }
+
+        private void RemoveSelectedLecturer()
+        {
+            if (listViewTeachers.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewTeachers.SelectedItems[0];
+
+                Teacher selectedTeacher = (Teacher)selectedItem.Tag;
+
+                listViewTeachers.Items.Remove(selectedItem);
+
+                teacherService.RemoveTeacher(selectedTeacher.LecturerID);
+            }
+        }
+
+
+
+        private void btnAddLecturer_Click(object sender, EventArgs e)
+        {
+            AddLecturer();
+        }
+
+
+        private void btnChangeLecturer_Click(object sender, EventArgs e)
+        {
+            string lecturerIdInput = Interaction.InputBox("Enter lecturer ID:", "Add Lecturer");
+            string firstNameInput = Interaction.InputBox("Enter first name:", "Add Lecturer");
+            string secondNameInput = Interaction.InputBox("Enter second name:", "Add Lecturer");
+            string phoneInput = Interaction.InputBox("Enter phone number:", "Add Lecturer");
+            string ageInput = Interaction.InputBox("Enter age:", "Add Lecturer");
+            string roomIdInput = Interaction.InputBox("Enter room ID:", "Add Lecturer");
+
+            if (int.TryParse(lecturerIdInput, out int lecturerIdInt) && int.TryParse(ageInput, out int ageInt) && int.TryParse(roomIdInput, out int roomIdInt))
+            {
+                RemoveSelectedLecturer();
+
+                Teacher newTeacher = new Teacher(lecturerIdInt, firstNameInput, secondNameInput, phoneInput, ageInt);
+                teacherService.AddTeacher(newTeacher, roomIdInt);
+                UpdateActivitySupervisors();
+            }
+            else
+            {
+                MessageBox.Show("Invalid lecturer ID, age, or room ID.");
+            }
+        }
+
+
+
+        private void btnRemoveLecturer_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Are you sure you wish to remove this lecturer?", "Remove Lecturer", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                RemoveSelectedLecturer();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+        }
+
     }
 }
